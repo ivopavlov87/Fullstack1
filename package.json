@@ -1,5 +1,8 @@
 {
   "name": "pictogram",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0"
+  }
 }
