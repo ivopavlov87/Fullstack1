@@ -15,8 +15,8 @@ import LogInFormContainer from './session_form/login_form_container';
 const App = () => (
   <div>
     <header>
-      <h1>This is inside app jsx</h1>
-      {/* <GreetingContainer /> */}
+      <h1>This is inside app.jsx</h1>
+      <GreetingContainer />
     </header>
     <Switch>
       <AuthRoute exact path="/login" component={LogInFormContainer} />
