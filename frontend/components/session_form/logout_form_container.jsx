@@ -3,10 +3,10 @@ import React from 'react';
 import { logout } from '../../actions/session_actions';
 import SessionForm from './session_form';
 
-const mapStateToProps = ({ errors, users }) => {
+const mapStateToProps = (state) => {
   return {
-    errors: errors.session,
-    currentUser: 'placeholder-name',
+    errors: state.errors.session,
+    currentUser: state.entities.users[state.session.id],
     formType: 'logout'
   };
 };

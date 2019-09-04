@@ -6,9 +6,11 @@ class SessionForm extends React.Component {
     this.state = {
       username: '',
       email: '',
-      password: ''
+      password: '',
+      // formType: 'signup'
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleClick = this.handleClick.bind(this);
   }
 
   update(field) {
@@ -16,6 +18,14 @@ class SessionForm extends React.Component {
       [field]: e.currentTarget.value
     });
   }
+
+  // handleClick(e) {
+  //   e.preventDefault();
+  //   const newFormType = this.state.formType === 'signup' ? 'login' : 'signup';
+  //   this.setState({
+  //     formType: newFormType
+  //   })
+  // }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -36,6 +46,8 @@ class SessionForm extends React.Component {
   }
 
   render() {
+
+    // const otherFormBtn = (this.state.formType === 'signup') ? 'Log In Instead' : 'Sign Up Instead';
 
     if (this.props.formType === 'login'){
       return (
@@ -69,10 +81,17 @@ class SessionForm extends React.Component {
       );
     }
 
+    // console.log("What is currentUser?")
+    let currentUsername = '';
+
+    if (this.props.currentUser){
+      currentUsername = this.props.currentUser.username
+    }
+
     if (this.props.formType === 'logout'){
       return (
         <div className="logout-form-container">
-          <h2 className="greeting-name">Hello, {this.props.currentUser}!</h2>
+          <h2 className="greeting-name">Hello, {currentUsername}!</h2>
           <br />
           <button className="logout-button" onClick={this.props.processForm}>Log Out</button>
         </div>

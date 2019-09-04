@@ -29,15 +29,28 @@ class Splash extends React.Component {
     const otherFormBtn = (this.state.formType === 'signup') ? 'Log In Instead' : 'Sign Up Instead';
     const formType = this.props.currentUser ? <LogoutFormContainer /> : (this.state.formType === 'signup') ? <SignUpFormContainer /> : <LoginFormContainer />;
 
-
-    return (
-      <div>
-        This text is inside the splash.jsx
-        <br />
-        <button onClick={this.handleClick}>{otherFormBtn}</button>
-        {formType}
-      </div>
-    )
+    // console.log("trying to find username:")
+    // console.log(this.props.currentUser.username);
+    
+    if (!this.props.currentUser){
+      return (
+        <div>
+          This text is inside the splash.jsx
+          <br />
+          <button onClick={this.handleClick}>{otherFormBtn}</button>
+          {formType}
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          This text is inside the splash.jsx!
+          <br />
+            <br />
+          {formType}
+        </div>
+      )
+    }
   }
 }
 
