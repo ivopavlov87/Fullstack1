@@ -6,11 +6,10 @@ class SessionForm extends React.Component {
     this.state = {
       username: '',
       email: '',
-      password: '',
-      // formType: 'signup'
+      password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleClick = this.handleClick.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   update(field) {
@@ -19,13 +18,13 @@ class SessionForm extends React.Component {
     });
   }
 
-  // handleClick(e) {
-  //   e.preventDefault();
-  //   const newFormType = this.state.formType === 'signup' ? 'login' : 'signup';
-  //   this.setState({
-  //     formType: newFormType
-  //   })
-  // }
+  handleDemo(e) {
+    e.preventDefault();
+    this.props.processForm({
+      username: 'username',
+      password: 'password'
+    })
+  }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -47,53 +46,51 @@ class SessionForm extends React.Component {
 
   render() {
 
-    // const otherFormBtn = (this.state.formType === 'signup') ? 'Log In Instead' : 'Sign Up Instead';
-
     if (this.props.formType === 'login'){
       return (
         <div className="login-form-container">
           <form onSubmit={this.handleSubmit} className="login-form-box">
-            This is the sessionform.jsx login portion
-          <br />
+            {/* This is the sessionform.jsx login portion */}
             {this.renderErrors()}
+            <input className="demo-user-button splash-button" type="submit" onClick={this.handleDemo} value='Demo User Log In' />
             <div className="login-form">
-              <br />
-              <label>Username:
+              <label>
               <input type="text"
                   value={this.state.username}
+                  placeholder='username'
                   onChange={this.update('username')}
                   className="login-input"
                 />
               </label>
               <br />
-              <label>Password:
+              <label>
               <input type="password"
                   value={this.state.password}
+                  placeholder='password'
                   onChange={this.update('password')}
                   className="login-input"
                 />
               </label>
               <br />
-              <input className="session-submit" type="submit" value={this.props.formType} />
+              <input className="session-submit splash-button" type="submit" value='Log In' />
             </div>
           </form>
         </div>
       );
     }
 
-    // console.log("What is currentUser?")
     let currentUsername = '';
 
     if (this.props.currentUser){
       currentUsername = this.props.currentUser.username
     }
 
-    if (this.props.formType === 'logout'){
+    if (this.props.formType === 'navBar'){
       return (
-        <div className="logout-form-container">
-          <h2 className="greeting-name">Hello, {currentUsername}!</h2>
+        <div className="nav-bar-container">
+          <h2 className="greeting-name">Hello, {currentUsername}! This is the sessionform.jsx, navBar section</h2>
           <br />
-          <button className="logout-button" onClick={this.props.processForm}>Log Out</button>
+          <button className="splash-button logout-button" onClick={this.props.processForm}>Log Out</button>
         </div>
       )
     }
@@ -102,36 +99,38 @@ class SessionForm extends React.Component {
       return (
         <div className="signup-form-container">
           <form onSubmit={this.handleSubmit} className="signup-form-box">
-            This is the sessionform.jsx sign up portion
-            <br />
+            {/* This is the sessionform.jsx sign up portion */}
             {this.renderErrors()}
             <div className="signup-form">
               <br />
-              <label>Username:
+              <label>
                 <input type="text"
                   value={this.state.username}
+                  placeholder='username'
                   onChange={this.update('username')}
                   className="signup-input"
                 />
               </label>
               <br />
-              <label>Email:
+              <label>
                 <input type="text"
                   value={this.state.email}
+                  placeholder='e-mail'
                   onChange={this.update('email')}
                   className="signup-input"
                 />
               </label>
               <br />
-              <label>Password:
+              <label>
                 <input type="password"
                   value={this.state.password}
+                  placeholder='password'
                   onChange={this.update('password')}
                   className="signup-input"
                 />
               </label>
               <br />
-              <input className="session-submit" type="submit" value={this.props.formType} />
+              <input className="session-submit splash-button" type="submit" value='Sign Up' />
             </div>
           </form>
         </div>

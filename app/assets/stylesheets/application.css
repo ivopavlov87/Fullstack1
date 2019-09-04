@@ -13,3 +13,88 @@
  *= require_tree .
  *= require_self
  */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+  vertical-align: baseline;
+}
+
+body{
+  background-color: #fafafa;
+  font-family: sans-serif;
+}
+
+.splash-button{
+  background-color: #3897F0;
+  color: #fafafa;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+}
+
+.demo-user-button{
+  background-color: green;
+}
+
+.logout-button{
+  background-color: red;
+}
+
+.splash-on-site{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-container{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.landing-image-column{
+  flex: 50%;
+}
+
+.form-column{
+  display: flex;
+  width: 350px;
+  border: 5px solid darkgrey;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 30px;
+}
+
+.landing-image{
+  max-width: 100%;
+  height: auto;
+}
+
+.login-input{
+  width: 100%;
+}
+
+.signup-input{
+  width: 100%;
+}

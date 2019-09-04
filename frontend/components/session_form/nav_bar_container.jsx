@@ -7,7 +7,7 @@ const mapStateToProps = (state) => {
   return {
     errors: state.errors.session,
     currentUser: state.entities.users[state.session.id],
-    formType: 'logout'
+    formType: 'navBar'
   };
 };
 

@@ -6,7 +6,6 @@ import App from './app';
 const Root = ({ store }) => (
   <Provider store={store}>
     <HashRouter>
-      <h1>Welcome to Pictogram! Find me in root.jsx</h1>
       <App />
     </HashRouter>
   </Provider>

@@ -2,7 +2,7 @@ import React from 'react';
 
 import SignUpFormContainer from '../session_form/signup_form_container';
 import LoginFormContainer from '../session_form/login_form_container';
-import LogoutFormContainer from '../session_form/logout_form_container';
+import NavBarContainer from '../session_form/nav_bar_container';
 
 
 
@@ -12,6 +12,7 @@ class Splash extends React.Component {
 
     this.state = {
       formType: "signup",
+      formText: 'Sign up to see photos from your friends!'
     }
     this.handleClick = this.handleClick.bind(this);
   }
@@ -19,34 +20,40 @@ class Splash extends React.Component {
   handleClick(e) {
     e.preventDefault();
     const newFormType = this.state.formType === 'signup' ? 'login' : 'signup';
+    const newFormText = this.state.formType === 'signup' ? 'Log in to see photos from your friends!' : 'Sign up to see photos from your friends!';
     this.setState({
-      formType: newFormType
+      formType: newFormType,
+      formText: newFormText
     })
   }
 
   render() {
 
+    const splashText = this.state.formText;
     const otherFormBtn = (this.state.formType === 'signup') ? 'Log In Instead' : 'Sign Up Instead';
-    const formType = this.props.currentUser ? <LogoutFormContainer /> : (this.state.formType === 'signup') ? <SignUpFormContainer /> : <LoginFormContainer />;
-
-    // console.log("trying to find username:")
-    // console.log(this.props.currentUser.username);
+    const formType = this.props.currentUser ? <NavBarContainer /> : (this.state.formType === 'signup') ? <SignUpFormContainer /> : <LoginFormContainer />;
     
     if (!this.props.currentUser){
       return (
-        <div>
-          This text is inside the splash.jsx
-          <br />
-          <button onClick={this.handleClick}>{otherFormBtn}</button>
-          {formType}
+        <div className='splash-on-site'>
+          <div className='landing-container'>
+            <div className='landing-image-column'>
+              <img className='landing-image' src="/assets/landing_image.png" alt="landing image" />
+            </div>
+            <div className='form-column'>
+              <h2 className='pictogram-name-text'>Pictogram!</h2>
+              <h3>{splashText}</h3>
+              <button className='splash-button form-type-button' onClick={this.handleClick}>{otherFormBtn}</button>
+              {formType}
+              By signing up, or logging in, you acknowledge that this is demo for learning purposes only.
+            </div>
+          </div>
         </div>
       )
     } else {
       return (
-        <div>
-          This text is inside the splash.jsx!
-          <br />
-            <br />
+        <div className='nav-bar'>
+          {/* This text is inside the splash.jsx! (this will be gone) */}
           {formType}
         </div>
       )
