@@ -41,7 +41,7 @@ class Splash extends React.Component {
               <img className='landing-image' src="/assets/landing_image.png" alt="landing image" />
             </div>
             <div className='form-column'>
-              <h2 className='pictogram-name-text'>Pictogram!</h2>
+              <h2 className='pictogram-name-text'>Pictogram</h2>
               <h3>{splashText}</h3>
               <button className='splash-button form-type-button' onClick={this.handleClick}>{otherFormBtn}</button>
               {formType}
