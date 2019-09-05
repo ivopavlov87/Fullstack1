@@ -10,6 +10,9 @@ const App = () => (
     <header>
       <SplashContainer />
     </header>
+    <footer>
+      Links for: GitHub Repot, Instagram, About Page(?)
+    </footer>
   </div>
 );
 

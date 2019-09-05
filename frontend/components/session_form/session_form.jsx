@@ -32,6 +32,10 @@ class SessionForm extends React.Component {
     this.props.processForm(user);
   }
 
+  componentWillUnmount(){
+    this.props.clearErrors();
+  }
+
   renderErrors() {
     return (
       <ul>
@@ -52,7 +56,7 @@ class SessionForm extends React.Component {
           <form onSubmit={this.handleSubmit} className="login-form-box">
             {/* This is the sessionform.jsx login portion */}
             {this.renderErrors()}
-            <input className="demo-user-button splash-button" type="submit" onClick={this.handleDemo} value='Demo User Log In' />
+            {/* <button className="demo-user-button splash-button" onClick={this.handleDemo} value='Demo User Log In' /> */}
             <div className="login-form">
               <label>
               <input type="text"
@@ -73,6 +77,7 @@ class SessionForm extends React.Component {
               </label>
               <br />
               <input className="session-submit splash-button" type="submit" value='Log In' />
+              <input className="demo-user-button splash-button" type="submit" onClick={this.handleDemo} value='Demo User Log In' />
             </div>
           </form>
         </div>

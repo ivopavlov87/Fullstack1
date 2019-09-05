@@ -59,7 +59,7 @@ body{
 
 .splash-on-site{
   width: 100vw;
-  height: 100vh;
+  height: 98vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -104,4 +104,10 @@ body{
 
 .signup-input{
   width: 100%;
+}
+
+footer{
+  display: flex;
+  bottom: 25px;
+  justify-content: center;
 }

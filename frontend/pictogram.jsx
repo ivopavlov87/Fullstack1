@@ -22,8 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
-  window.dispatch = store.dispatch
 
+  // FOR TESTING - REMOVE
+  window.getState = store.getState
+  window.dispatch = store.dispatch
+  // FOR TESTING - REMOVE
 
 
 
