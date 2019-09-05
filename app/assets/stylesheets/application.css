@@ -47,6 +47,15 @@ body{
   font-size: 16px;
   font-weight: bold;
   width: 100%;
+  margin: 5px;
+}
+
+.splash-button:hover{
+  cursor: pointer;
+}
+
+.session-form{
+  margin: 10px;
 }
 
 .demo-user-button{
@@ -81,7 +90,6 @@ body{
   width: 350px;
   border: 5px solid darkgrey;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   box-sizing: border-box;
   padding: 30px;
@@ -95,15 +103,20 @@ body{
 
 .pictogram-name-text{
   font-size: 60px;
-  font-family: cursive;
+  font-family: 'Oleo Script', cursive;
+  color: darkgrey;
+  position: relative;
+  bottom: 20px;
 }
 
 .login-input{
   width: 100%;
+  margin: 5px;
 }
 
 .signup-input{
   width: 100%;
+  margin: 3px;
 }
 
 footer{

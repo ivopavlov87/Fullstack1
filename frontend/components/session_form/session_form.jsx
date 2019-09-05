@@ -52,8 +52,8 @@ class SessionForm extends React.Component {
 
     if (this.props.formType === 'login'){
       return (
-        <div className="login-form-container">
-          <form onSubmit={this.handleSubmit} className="login-form-box">
+        <div className="session-form-container">
+          <form onSubmit={this.handleSubmit} className="session-form login-form-box">
             {/* This is the sessionform.jsx login portion */}
             {this.renderErrors()}
             {/* <button className="demo-user-button splash-button" onClick={this.handleDemo} value='Demo User Log In' /> */}
@@ -92,7 +92,7 @@ class SessionForm extends React.Component {
 
     if (this.props.formType === 'navBar'){
       return (
-        <div className="nav-bar-container">
+        <div className="nav-bar-container session-form">
           <h2 className="greeting-name">Hello, {currentUsername}! This is the sessionform.jsx, navBar section</h2>
           <br />
           <button className="splash-button logout-button" onClick={this.props.processForm}>Log Out</button>
@@ -102,12 +102,11 @@ class SessionForm extends React.Component {
 
     if (this.props.formType === 'signup') {
       return (
-        <div className="signup-form-container">
+        <div className="session-form">
           <form onSubmit={this.handleSubmit} className="signup-form-box">
             {/* This is the sessionform.jsx sign up portion */}
             {this.renderErrors()}
             <div className="signup-form">
-              <br />
               <label>
                 <input type="text"
                   value={this.state.username}
