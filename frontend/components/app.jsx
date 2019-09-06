@@ -11,6 +11,7 @@ const App = () => (
     <header>
       {/* <SplashContainer /> */}
       <Switch>
+        <Route path="/" component={SplashContainer} />
         <AuthRoute exact path="/" component={SplashContainer} />
         <ProtectedRoute exact path="/feed" component={SplashContainer} />
         <Redirect to="/feed" />
