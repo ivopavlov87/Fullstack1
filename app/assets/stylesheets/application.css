@@ -91,6 +91,7 @@ body{
   width: 350px;
   border: 1px solid #e6e6e6;
   background-color: #fff;
+  color: darkgrey;
   flex-direction: column;
   justify-content: center;
   box-sizing: border-box;
@@ -108,15 +109,24 @@ body{
     .landing-image {
         display: none;
     }
+    .form-column{
+      display: flex;
+      width: 100%;
+      margin: 0px 250px 0px 125px;
+    }
 }
 
 .pictogram-name-text{
   font-size: 60px;
   font-family: 'Bilbo Swash Caps', cursive;
-  color: darkgrey;
+  color: #000;
   position: relative;
   bottom: 20px;
   text-decoration: underline;
+}
+
+.splash-text{
+  color: darkgrey;
 }
 
 .login-input{

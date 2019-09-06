@@ -22,7 +22,9 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    this.props.processForm(user).then(() => {
+      this.props.history.push("/feed");
+    });
   }
 
   componentWillUnmount(){
@@ -85,7 +87,7 @@ class SessionForm extends React.Component {
               <input type="text"
                   id='username-input'
                   value={this.state.username}
-                  placeholder='username'
+                  placeholder='Username'
                   onChange={this.update('username')}
                   className="login-input"
                 />
@@ -95,7 +97,7 @@ class SessionForm extends React.Component {
               <input type="password"
                   id='password-input'
                   value={this.state.password}
-                  placeholder='password'
+                  placeholder='Password'
                   onChange={this.update('password')}
                   className="login-input"
                 />
@@ -136,7 +138,7 @@ class SessionForm extends React.Component {
               <label>
                 <input type="text"
                   value={this.state.username}
-                  placeholder='username'
+                  placeholder='Username'
                   onChange={this.update('username')}
                   className="signup-input"
                 />
@@ -145,7 +147,7 @@ class SessionForm extends React.Component {
               <label>
                 <input type="text"
                   value={this.state.email}
-                  placeholder='e-mail'
+                  placeholder='Email'
                   onChange={this.update('email')}
                   className="signup-input"
                 />
@@ -154,7 +156,7 @@ class SessionForm extends React.Component {
               <label>
                 <input type="password"
                   value={this.state.password}
-                  placeholder='password'
+                  placeholder='Password'
                   onChange={this.update('password')}
                   className="signup-input"
                 />
