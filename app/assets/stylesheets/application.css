@@ -48,6 +48,7 @@ body{
   font-weight: bold;
   width: 100%;
   margin: 5px;
+  padding: 5px;
 }
 
 .splash-button:hover{
@@ -127,6 +128,7 @@ body{
 
 .splash-text{
   color: darkgrey;
+  padding: 5px;
 }
 
 .login-input{
