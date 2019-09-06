@@ -44,7 +44,7 @@ class Splash extends React.Component {
             </div>
             <div className='form-column'>
               <Link to="/">
-                <h2 className='pictogram-name-text'>Pictogram</h2>
+                <h2 className='pictogram-name-text'>Picto-gram</h2>
               </Link>
               <h3 className='splash-text'>{splashText}</h3>
               <button className='splash-button form-type-button' onClick={this.handleClick}>{otherFormBtn}</button>

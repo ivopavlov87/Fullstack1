@@ -29,6 +29,7 @@ gem 'pry-rails'
 gem 'annotate'
 gem 'binding_of_caller'
 gem 'jquery-rails'
+gem 'rails_12factor'
 
 
 # Use ActiveStorage variant
