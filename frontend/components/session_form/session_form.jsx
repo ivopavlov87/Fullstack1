@@ -125,7 +125,7 @@ class SessionForm extends React.Component {
         <div className="nav-bar-container session-form">
           <h2 className="greeting-name">Hello, {currentUsername}! This is the sessionform.jsx, navBar section</h2>
           <br />
-          <input type="submit" id='logout-btn' className="splash-button logout-button" onClick={this.props.processForm}>Log Out</i>
+          <input type="submit" id='logout-btn' className="splash-button logout-button" onClick={this.props.processForm} value="Log Out" />
         </div>
       )
     }
