@@ -36,24 +36,36 @@ class Splash extends React.Component {
     
     if (!this.props.currentUser){
       return (
-        <div className='splash-on-site'>
-          <div className='landing-container'>
-            <div className='landing-image-column'>
-              <video autoPlay loop className='landing-image' src={window.landing_mov} 
-                poster="/assets/landing_image.png" alt="landing image" />
+        <div className="splash-on-site">
+          <div className="landing-container">
+            <div className="landing-image-column">
+              <video
+                autoPlay
+                loop
+                className="landing-image"
+                src={window.landing_mov}
+                poster={window.landing_img}
+                alt="landing image"
+              />
             </div>
-            <div className='form-column'>
+            <div className="form-column">
               <Link to="/">
-                <h2 className='pictogram-name-text'>Picto-gram</h2>
+                <h2 className="pictogram-name-text">Picto-gram</h2>
               </Link>
-              <h3 className='splash-text'>{splashText}</h3>
-              <button className='splash-button form-type-button' onClick={this.handleClick}>{otherFormBtn}</button>
+              <h3 className="splash-text">{splashText}</h3>
+              <button
+                className="splash-button form-type-button"
+                onClick={this.handleClick}
+              >
+                {otherFormBtn}
+              </button>
               {formType}
-              By signing up, or logging in, you acknowledge that this is demo for learning purposes only.
+              By signing up, or logging in, you acknowledge that this is demo
+              for learning purposes only.
             </div>
           </div>
         </div>
-      )
+      );
     } else {
       return (
         <div className='nav-bar'>
