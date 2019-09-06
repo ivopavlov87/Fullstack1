@@ -34,6 +34,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "webpack",
     "webpack": "webpack --mode=development --watch"
   },
   "repository": {
@@ -45,6 +46,10 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ivopavlov87/Fullstack1/issues"
+  },
+  "engines": {
+    "node": "12.5.0",
+    "npm": "6.9.0"
   },
   "homepage": "https://github.com/ivopavlov87/Fullstack1#readme"
 }
