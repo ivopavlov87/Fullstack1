@@ -58,12 +58,12 @@ class Splash extends React.Component {
                 <h2 className="pictogram-name-text">Picto-gram</h2>
               </Link>
               <h3 className="splash-text">{splashText}</h3>
-              <button
+              <input
                 className="splash-button form-type-button"
+                type='submit'
                 onClick={this.handleClick}
-              >
-                {otherFormBtn}
-              </button>
+                value={otherFormBtn}
+              />
               {formType}
               By signing up, or logging in, you acknowledge that this is demo
               for learning purposes only.

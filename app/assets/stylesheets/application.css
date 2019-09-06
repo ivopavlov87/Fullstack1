@@ -160,6 +160,7 @@ footer{
   margin: 0 0px 0 17px;
   box-sizing: border-box;
   width: 93%;
+  text-align: center;
 }
 
 .login-input{
