@@ -3,9 +3,12 @@
   "private": true,
   "dependencies": {
     "@babel/core": "^7.5.5",
+    "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
+    "@babel/runtime": "^7.5.5",
     "babel-loader": "^8.0.6",
+    "babel-polyfill": "^6.26.0",
     "install": "^0.13.0",
     "npm": "^6.11.3",
     "react": "^16.9.0",
@@ -26,7 +29,9 @@
     "lib": "lib",
     "test": "test"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.5.5"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack --mode=development --watch"

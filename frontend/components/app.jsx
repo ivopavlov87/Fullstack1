@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import { Provider } from 'react-redux';
 
 
@@ -11,7 +12,11 @@ const App = () => (
       <SplashContainer />
     </header>
     <footer>
-      Links for: GitHub Repot, Instagram, About Page(?)
+      <a className='footer-links' href='https://github.com/ivopavlov87/Fullstack1'>Pictogram-GitHub</a>
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      <a className='footer-links' href='https://www.instagram.com'>Instagram</a>
     </footer>
   </div>
 );

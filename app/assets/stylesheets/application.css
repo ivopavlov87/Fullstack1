@@ -82,18 +82,21 @@ body{
 
 .landing-image-column{
   flex: 50%;
+  margin: 0 5px 0 0;
 }
 
 .form-column{
   display: flex;
   flex: auto;
   width: 350px;
-  border: 5px solid darkgrey;
+  border: 1px solid #e6e6e6;
+  background-color: #fff;
   flex-direction: column;
   justify-content: center;
   box-sizing: border-box;
   padding: 30px;
   text-align: center;
+  margin: 0 0 0 5px;
 }
 
 .landing-image{
@@ -103,10 +106,11 @@ body{
 
 .pictogram-name-text{
   font-size: 60px;
-  font-family: 'Oleo Script', cursive;
+  font-family: 'Bilbo Swash Caps', cursive;
   color: darkgrey;
   position: relative;
   bottom: 20px;
+  text-decoration: underline;
 }
 
 .login-input{
@@ -123,4 +127,45 @@ footer{
   display: flex;
   bottom: 25px;
   justify-content: center;
+}
+
+.footer-links{
+  text-decoration: none;
+  color: #3897F0;
+}
+
+.errors{
+  color: red;
+  font-size: 12px;
+  list-style-type: none;
+}
+
+.form-type-button{
+  margin: 0 0px 0 17px;
+  box-sizing: border-box;
+  width: 93%;
+}
+
+.login-input{
+  height: 36px;
+  background-color: #fafafa;
+  font-size: 16px;
+  padding: 9px 0 7px 8px;
+  box-sizing: border-box;
+}
+
+input:focus{
+  outline: none;
+}
+
+button:focus{
+  outline: none;
+}
+
+.signup-input{
+  height: 36px;
+  background-color: #fafafa;
+  font-size: 16px;
+  padding: 9px 0 7px 8px;
+  box-sizing: border-box;
 }

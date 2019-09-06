@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import SignUpFormContainer from '../session_form/signup_form_container';
 import LoginFormContainer from '../session_form/login_form_container';
@@ -38,12 +39,13 @@ class Splash extends React.Component {
         <div className='splash-on-site'>
           <div className='landing-container'>
             <div className='landing-image-column'>
-              {/* <img className='landing-image' src="/assets/landing_image.png" alt="landing image" /> */}
               <video autoPlay loop className='landing-image' src="/assets/landing_mov.mov" 
                 poster="/assets/landing_image.png" alt="landing image" />
             </div>
             <div className='form-column'>
-              <h2 className='pictogram-name-text'>Pictogram</h2>
+              <Link to="/">
+                <h2 className='pictogram-name-text'>Pictogram</h2>
+              </Link>
               <h3 className='splash-text'>{splashText}</h3>
               <button className='splash-button form-type-button' onClick={this.handleClick}>{otherFormBtn}</button>
               {formType}
@@ -55,7 +57,6 @@ class Splash extends React.Component {
     } else {
       return (
         <div className='nav-bar'>
-          {/* This text is inside the splash.jsx! (this will be gone) */}
           {formType}
         </div>
       )
