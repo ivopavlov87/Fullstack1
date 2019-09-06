@@ -39,7 +39,7 @@ class Splash extends React.Component {
         <div className='splash-on-site'>
           <div className='landing-container'>
             <div className='landing-image-column'>
-              <video autoPlay loop className='landing-image' src="/assets/landing_mov.mov" 
+              <video autoPlay loop className='landing-image' src={window.landing_mov} 
                 poster="/assets/landing_image.png" alt="landing image" />
             </div>
             <div className='form-column'>
