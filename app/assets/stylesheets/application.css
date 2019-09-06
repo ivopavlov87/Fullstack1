@@ -105,7 +105,7 @@ body{
   height: auto;
 }
 
-@media (max-width: 850px) {
+/* @media (max-width: 850px) {
     .landing-image {
         display: none;
     }
@@ -114,7 +114,7 @@ body{
       width: 100%;
       margin: 0px 250px 0px 125px;
     }
-}
+} */
 
 .pictogram-name-text{
   font-size: 60px;
