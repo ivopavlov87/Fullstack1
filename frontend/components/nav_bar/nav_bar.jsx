@@ -26,6 +26,10 @@ class NavBar extends React.Component {
     this.props.clearErrors();
   }
 
+  componentDidMount(){
+    window.scrollTo(0, 0);
+  }
+
   renderErrors() {
     return (
       <ul className='errors'>
