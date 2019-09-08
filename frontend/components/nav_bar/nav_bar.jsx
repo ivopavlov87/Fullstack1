@@ -55,11 +55,24 @@ class NavBar extends React.Component {
     if (this.props.formType === 'navBar'){
       return (
         <div className="nav-bar">
-          <h2 className="greeting-name">Hello, {currentUsername}! This is the nav_bar.jsx, navBar section</h2>
+          <h2 className="greeting-name">
+            Hello, {currentUsername}! This is the nav_bar.jsx, navBar section
+          </h2>
+          <img
+            className="nav-bar-profile-pic"
+            src={window.happy_max}
+            alt="placeholder-pic"
+          />
           &nbsp;
-          <input type="submit" id='logout-btn' className="splash-button logout-button" onClick={this.props.processForm} value="Log Out" />
+          <input
+            type="submit"
+            id="logout-btn"
+            className="splash-button logout-button"
+            onClick={this.props.processForm}
+            value="Log Out"
+          />
         </div>
-      )
+      );
     }
   }
 }

@@ -203,3 +203,19 @@ button:focus{
   height: auto;
   width: 100%;
 }
+
+.nav-bar-profile-pic {
+    object-fit: cover;
+    object-position: 100% 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    box-sizing: border-box;
+    margin: 5px;
+}
+
+.test-image{
+  max-width: 614px;
+  height: auto;
+  display: flex;
+}
