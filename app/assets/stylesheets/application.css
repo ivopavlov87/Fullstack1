@@ -65,6 +65,7 @@ body{
 
 .logout-button{
   background-color: red;
+  width: 100px;
 }
 
 .splash-on-site{
@@ -192,6 +193,7 @@ button:focus{
 .nav-bar{
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .user-page{
