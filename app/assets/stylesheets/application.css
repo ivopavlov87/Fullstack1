@@ -218,6 +218,7 @@ button:focus{
 
 .test-image{
   max-width: 614px;
-  height: auto;
+  max-height: 614px;
+  object-fit: scale-down;
   display: flex;
 }
