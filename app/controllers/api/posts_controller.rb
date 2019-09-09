@@ -19,7 +19,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
-      render: show
+      render :show
     else
       render json: @post.errors.full_messages, status: 422
     end
