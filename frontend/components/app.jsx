@@ -28,6 +28,7 @@ const App = () => (
       <Switch>
         <AuthRoute exact path="/" component={SplashContainer} />
         <ProtectedRoute exact path="/feed" component={Landed} />
+        <ProtectedRoute path="/users/:userId" component={UserProfileContainer} />
         <Redirect to="/" />
       </Switch>
     </header>
