@@ -29,11 +29,38 @@ class UserProfile extends React.Component {
 
     return (
       <div className="user-profile">
-        <h2 className="user-greeting-bs">
-          Hello, {currentUsername}! This is the user profile container!
-          <br />
-          {this.props.currentUser.bio}
-        </h2>
+        <div className="user-profile-top">
+          <div>
+            <img className="user-profile-top-picture" src={window.happy_max} />
+          </div>
+          <div className="user-profile-top-card">
+            <div className="row row1">
+              <div>{currentUsername}</div>
+              <div>
+                <button>Edit Profile</button>
+              </div>
+              <div>
+                <button>Settings</button>
+              </div>
+            </div>
+            <div className="row row2">
+              <div># of posts</div>
+              <div># of followers</div>
+              <div># of followed accounts</div>
+            </div>
+            <div className="row row3">
+              <div>{currentUsername} - User full name here?</div>
+              <br />
+              <div>{this.props.currentUser.bio}</div>
+            </div>
+          </div>
+        </div>
+        <div className="user-page">
+          <div>User pictures!</div>
+          <div className="user-pictures">
+            <img className="test-image" src={window.happy_max} alt="yup" />
+          </div>
+        </div>
       </div>
     );
 

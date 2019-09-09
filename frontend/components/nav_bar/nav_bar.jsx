@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -55,14 +56,17 @@ class NavBar extends React.Component {
     if (this.props.formType === 'navBar'){
       return (
         <div className="nav-bar">
-          <h2 className="greeting-name">
-            Hello, {currentUsername}! This is the nav_bar.jsx, navBar section
-          </h2>
-          <img
-            className="nav-bar-profile-pic"
-            src={window.happy_max}
-            alt="placeholder-pic"
-          />
+          <Link to="/">
+            <p className="pictogram-name-text-nav-bar">Picto-gram</p>
+          </Link>
+          <div>
+            <img
+              className="nav-bar-profile-pic"
+              src={window.happy_max}
+              alt="placeholder-pic"
+            />
+            {currentUsername}'s profile
+          </div>
           &nbsp;
           <input
             type="submit"

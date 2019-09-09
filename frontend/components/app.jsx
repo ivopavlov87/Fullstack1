@@ -17,10 +17,6 @@ const Landed = () => {
       <div className="user-profile-container">
         <UserProfileContainer />
       </div>
-      <div className="user-page">
-        <h2>You have landed</h2>
-        <img className="test-image" src={window.happy_max} alt="yup" />
-      </div>
     </div>
   );
 };

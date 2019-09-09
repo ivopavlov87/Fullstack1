@@ -127,6 +127,17 @@ body{
   text-decoration: underline;
 }
 
+.pictogram-name-text-nav-bar{
+  position: relative;
+  top: 00px;
+  font-size: 48px;
+  font-family: 'Bilbo Swash Caps', cursive;
+  color: #000;
+  position: relative;
+  bottom: 20px;
+  text-decoration: underline;
+}
+
 .splash-text{
   color: darkgrey;
   padding: 5px;
@@ -221,4 +232,41 @@ button:focus{
   max-height: 614px;
   object-fit: scale-down;
   display: flex;
+}
+
+.user-profile-top{
+  display: inline-flex;
+}
+
+.user-profile-top-picture{
+  width: 150px;
+  height: 150px;
+  border-radius: 100px;
+  object-fit: cover;
+  object-position: 100% 0;
+}
+
+.user-profile-top-card{
+  display: inherit;
+  flex-direction: column;
+  margin-left: 50px;
+}
+
+.row{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.row1{
+  display: inherit;
+  justify-content: space-evenly;
+}
+
+.row2{
+  display: inherit;
+  justify-content: space-evenly;
+}
+
+.row3{
+
 }
