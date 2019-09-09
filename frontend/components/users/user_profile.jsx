@@ -40,7 +40,9 @@ class UserProfile extends React.Component {
                 <button>Edit Profile</button>
               </div>
               <div>
-                <button>Settings</button>
+                <button>
+                  <i className="fa fa-gear"></i>
+                </button>
               </div>
             </div>
             <div className="row row2">
