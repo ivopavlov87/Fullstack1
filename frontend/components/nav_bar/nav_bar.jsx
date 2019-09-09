@@ -59,22 +59,25 @@ class NavBar extends React.Component {
           <Link to="/">
             <p className="pictogram-name-text-nav-bar">Picto-gram</p>
           </Link>
-          <div>
-            <img
-              className="nav-bar-profile-pic"
-              src={window.happy_max}
-              alt="placeholder-pic"
+          <div className="nav-bar-buttons">
+            <div>
+              <Link to="#">
+                <img
+                  className="nav-bar-profile-pic"
+                  src={window.happy_max}
+                  alt="placeholder-pic"
+                />
+              </Link>
+            </div>
+            &nbsp;
+            <input
+              type="submit"
+              id="logout-btn"
+              className="splash-button logout-button"
+              onClick={this.props.processForm}
+              value="Log Out"
             />
-            {currentUsername}'s profile
           </div>
-          &nbsp;
-          <input
-            type="submit"
-            id="logout-btn"
-            className="splash-button logout-button"
-            onClick={this.props.processForm}
-            value="Log Out"
-          />
         </div>
       );
     }

@@ -46,12 +46,12 @@ class UserProfile extends React.Component {
               </div>
             </div>
             <div className="row row2">
-              <div># of posts</div>
-              <div># of followers</div>
+              <div># of posts</div>&nbsp;|&nbsp;
+              <div># of followers</div>&nbsp;|&nbsp;
               <div># of followed accounts</div>
             </div>
             <div className="row row3">
-              <div>{currentUsername} - User full name here?</div>
+              <div>About {currentUsername}:</div>
               <br />
               <div>{this.props.currentUser.bio}</div>
             </div>

@@ -136,6 +136,7 @@ body{
   position: relative;
   bottom: 20px;
   text-decoration: underline;
+  margin-left: 5px;
 }
 
 .splash-text{
@@ -244,6 +245,7 @@ button:focus{
   border-radius: 100px;
   object-fit: cover;
   object-position: 100% 0;
+  margin-left: 5px;
 }
 
 .user-profile-top-card{
@@ -269,4 +271,8 @@ button:focus{
 
 .row3{
 
+}
+
+.nav-bar-buttons{
+  display: inherit;
 }
