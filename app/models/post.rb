@@ -4,11 +4,10 @@ class Post < ApplicationRecord
 
   belongs_to :user
 
-  # has_one_attached :photo
+  has_one_attached :photo
 
-  # NEED TO IMPLEMENT
-  # def ensure_photo
-  #   errors[:photo].push("A photo is required.") unless self.photo.attached?
-  # end
+  def ensure_photo
+    errors[:photo].push("A photo is required.") unless self.photo.attached?
+  end
 
 end

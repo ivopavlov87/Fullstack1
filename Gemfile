@@ -30,6 +30,7 @@ gem 'annotate'
 gem 'binding_of_caller'
 gem 'jquery-rails'
 gem 'rails_12factor'
+gem "aws-sdk-s3"
 
 
 # Use ActiveStorage variant
