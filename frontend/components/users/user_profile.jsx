@@ -25,6 +25,7 @@ class UserProfile extends React.Component {
 
     if (this.props.currentUser) {
       currentUsername = this.props.currentUser.username;
+      console.log(this.props);
     }
 
     return (

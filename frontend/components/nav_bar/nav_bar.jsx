@@ -50,7 +50,9 @@ class NavBar extends React.Component {
     let currentUsername = '';
 
     if (this.props.currentUser){
-      currentUsername = this.props.currentUser.username
+      currentUsername = this.props.currentUser.username;
+      console.log(this.props.currentUser);
+      
     }
 
     if (this.props.formType === 'navBar'){

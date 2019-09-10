@@ -7,7 +7,9 @@ import { clearSessionErrors } from "../../actions/session_actions";
 const mapStateToProps = state => {
   return {
     errors: state.errors.session,
+    sessionId: state.session.id,
     currentUser: state.entities.users[state.session.id],
+    profilePicture: state.entities.users[state.session.id].profile_picture
   };
 };
 
