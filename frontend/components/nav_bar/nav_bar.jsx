@@ -47,12 +47,6 @@ class NavBar extends React.Component {
 
   render() {
 
-    let currentUsername = '';
-
-    if (this.props.currentUser){
-      currentUsername = this.props.currentUser.username;
-    }
-
     let profilePic;
     if (this.props.profilePicture) {
       profilePic = (
@@ -72,7 +66,7 @@ class NavBar extends React.Component {
       );
     }
 
-    if (this.props.formType === 'navBar'){
+    if (this.props.currentUser) {
       return (
         <div className="nav-bar">
           <Link to="/">
@@ -83,25 +77,27 @@ class NavBar extends React.Component {
           </div>
           <div className="nav-bar-buttons">
             <div>
-              <Link to="#">
-                <img className="nav-bar-profile-pic" src={window.upload_pic} />
+              <Link to="/posts/new">
+                <img className="nav-bar-upload-pic" src={window.upload_pic} />
               </Link>
             </div>
             &nbsp;
             <div>
-              <Link to="#">{profilePic}</Link>
+              <Link to="/feed">{profilePic}</Link>
             </div>
             &nbsp;
             <input
               type="submit"
               id="logout-btn"
               className="splash-button logout-button"
-              onClick={this.props.processForm}
+              onClick={this.props.logout}
               value="Log Out"
             />
           </div>
         </div>
       );
+    } else {
+      return null;
     }
   }
 }

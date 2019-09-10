@@ -5,17 +5,22 @@ import NavBar from './nav_bar';
 import { withRouter } from 'react-router';
 
 const mapStateToProps = (state) => {
-  return {
+  if (state.entities.users[state.session.id]){
+    return {
     errors: state.errors.session,
     currentUser: state.entities.users[state.session.id],
     profilePicture: state.entities.users[state.session.id].photoURL,
-    formType: 'navBar'
-  };
+    };
+  } else {
+    return {
+    errors: state.errors.session
+    };
+  }
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    processForm: () => dispatch(logout()),
+    logout: () => dispatch(logout()),
     clearErrors: () => dispatch(clearSessionErrors())
   };
 };
