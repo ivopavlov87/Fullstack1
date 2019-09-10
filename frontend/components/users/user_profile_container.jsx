@@ -9,7 +9,7 @@ const mapStateToProps = state => {
     errors: state.errors.session,
     sessionId: state.session.id,
     currentUser: state.entities.users[state.session.id],
-    profilePicture: state.entities.users[state.session.id].profile_picture
+    profilePicture: state.entities.users[state.session.id].photoURL
   };
 };
 

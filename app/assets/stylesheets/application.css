@@ -285,3 +285,7 @@ button:focus{
 .nav-bar-buttons{
   display: inherit;
 }
+
+.nav-bar-search{
+  align-self: center;
+}

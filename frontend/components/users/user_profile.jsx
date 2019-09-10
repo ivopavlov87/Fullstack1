@@ -25,14 +25,23 @@ class UserProfile extends React.Component {
 
     if (this.props.currentUser) {
       currentUsername = this.props.currentUser.username;
-      console.log(this.props);
+    }
+
+    let profilePic;
+    if (this.props.profilePicture){
+      profilePic = <img className="user-profile-top-picture" src={this.props.profilePicture} />
+    } else {
+      profilePic = <img
+        className="user-profile-top-picture"
+        src={window.default_profile_pic}
+      />
     }
 
     return (
       <div className="user-profile">
         <div className="user-profile-top">
           <div>
-            <img className="user-profile-top-picture" src={window.happy_max} />
+            {profilePic}
           </div>
           <div className="user-profile-top-card">
             <div className="row row1">

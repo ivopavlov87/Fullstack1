@@ -1,3 +1,6 @@
-json.extract! user, :id, :username, :email, :bio, :profile_picture
+json.extract! user, :id, :username, :email, :bio
 
-# json.photoURL url_for(@user.profile_picture)
+if user.profile_picture.attached?
+  json.photoURL url_for(user.profile_picture)
+end
+

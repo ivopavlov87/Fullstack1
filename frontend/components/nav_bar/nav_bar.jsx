@@ -51,8 +51,25 @@ class NavBar extends React.Component {
 
     if (this.props.currentUser){
       currentUsername = this.props.currentUser.username;
-      console.log(this.props.currentUser);
-      
+    }
+
+    let profilePic;
+    if (this.props.profilePicture) {
+      profilePic = (
+        <img
+          className="nav-bar-profile-pic"
+          src={this.props.profilePicture}
+          alt="placeholder-pic"
+        />
+      );
+    } else {
+      profilePic = (
+        <img
+          className="nav-bar-profile-pic"
+          src={window.default_profile_pic}
+          alt="placeholder-pic"
+        />
+      );
     }
 
     if (this.props.formType === 'navBar'){
@@ -61,15 +78,18 @@ class NavBar extends React.Component {
           <Link to="/">
             <p className="pictogram-name-text-nav-bar">Picto-gram</p>
           </Link>
+          <div className="nav-bar-search">
+            <input type="text" placeholder="Search" />
+          </div>
           <div className="nav-bar-buttons">
             <div>
               <Link to="#">
-                <img
-                  className="nav-bar-profile-pic"
-                  src={window.happy_max}
-                  alt="placeholder-pic"
-                />
+                <img className="nav-bar-profile-pic" src={window.upload_pic} />
               </Link>
+            </div>
+            &nbsp;
+            <div>
+              <Link to="#">{profilePic}</Link>
             </div>
             &nbsp;
             <input
