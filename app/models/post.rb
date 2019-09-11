@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   validates :user_id, :caption, presence: true
-  # validate :ensure_photo
+  validate :ensure_photo
 
   belongs_to :user
 

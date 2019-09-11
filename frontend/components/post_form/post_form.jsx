@@ -5,6 +5,11 @@ class PostForm extends React.Component {
   constructor(props) {
     super(props)
     
+    // this.state = {
+    //   caption: "",
+    //   photoFile: null,
+    //   photoUrl: null
+    // };
   }
 
 
