@@ -11,7 +11,9 @@ class PostForm extends React.Component {
   render() {
     return (
     <div>
-      this is inside the post form jsx say hi to {this.props.currentUser.username}
+      <form>
+        <input type="text" placeholder = 'Add a caption' />
+      </form>
     </div>
     );
   }

@@ -9,6 +9,7 @@ import SplashContainer from './splash/splash_container';
 import NavBarContainer from './nav_bar/nav_bar_container';
 import UserProfileContainer from './users/user_profile_container';
 import PostFormContainer from './post_form/post_form_container';
+import PostShowContainer from './post_show/post_show_container';
 
 const Landed = () => {
 
@@ -26,15 +27,15 @@ const Landed = () => {
 const App = () => (
   <div>
     <header>
-      {/* this is a test: {username} */}
       <div className="nav-bar-container">
         <NavBarContainer />
       </div>
       <Switch>
         <AuthRoute exact path="/" component={SplashContainer} />
         <ProtectedRoute exact path="/feed" component={UserProfileContainer} />
-        <ProtectedRoute path="/users/:userId" component={UserProfileContainer} />
+        <ProtectedRoute exact path="/users/:userId" component={UserProfileContainer} />
         <ProtectedRoute exact path="/posts/new" component={PostFormContainer} />
+        <ProtectedRoute exact path="/posts/:postId" component={PostShowContainer} />
         <Redirect to="/" />
       </Switch>
     </header>

@@ -226,10 +226,14 @@ button:focus{
     object-position: 100% 0;
     width: 50px;
     height: 50px;
-    border-radius: 50px;
+    border-radius: 10px;
     box-sizing: border-box;
     margin: 5px;
     opacity: 0.75;
+}
+
+.nav-bar-profile-pic:hover{
+  cursor: pointer;
 }
 
 .test-image{
@@ -300,4 +304,15 @@ button:focus{
     border-radius: 15px;
     box-sizing: border-box;
     margin: 5px;
+}
+
+.post-show-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.post-show-picture{
+  height: 614px;
+  width: auto;
 }
