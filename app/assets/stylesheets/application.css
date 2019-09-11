@@ -64,8 +64,11 @@ body{
 }
 
 .logout-button{
-  background-color: red;
-  width: 100px;
+  background-color: #fafafa;
+  height: 50px;
+  width: auto;
+  margin-top: -1px;
+  opacity: 0.75
 }
 
 .splash-on-site{
@@ -226,6 +229,7 @@ button:focus{
     border-radius: 50px;
     box-sizing: border-box;
     margin: 5px;
+    opacity: 0.75;
 }
 
 .test-image{

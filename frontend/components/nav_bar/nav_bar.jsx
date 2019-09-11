@@ -5,21 +5,11 @@ class NavBar extends React.Component {
   constructor(props) {
     super(props);
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-
   }
 
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
-    });
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    const user = Object.assign({}, this.state);
-    this.props.processForm(user).then(() => {
-      this.props.history.push("/");
     });
   }
 
@@ -47,25 +37,6 @@ class NavBar extends React.Component {
 
   render() {
 
-    let profilePic;
-    if (this.props.profilePicture) {
-      profilePic = (
-        <img
-          className="nav-bar-profile-pic"
-          src={this.props.profilePicture}
-          alt="placeholder-pic"
-        />
-      );
-    } else {
-      profilePic = (
-        <img
-          className="nav-bar-profile-pic"
-          src={window.default_profile_pic}
-          alt="placeholder-pic"
-        />
-      );
-    }
-
     if (this.props.currentUser) {
       return (
         <div className="nav-bar">
@@ -83,15 +54,17 @@ class NavBar extends React.Component {
             </div>
             &nbsp;
             <div>
-              <Link to="/feed">{profilePic}</Link>
+              <Link to="/feed">
+                <img className="nav-bar-profile-pic" src={window.blank_user} />
+              </Link>
             </div>
             &nbsp;
-            <input
-              type="submit"
+            <img
               id="logout-btn"
-              className="splash-button logout-button"
               onClick={this.props.logout}
-              value="Log Out"
+              className="splash-button logout-button"
+              src={window.logout_icon}
+              alt="logout"
             />
           </div>
         </div>
