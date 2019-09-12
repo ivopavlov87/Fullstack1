@@ -54,8 +54,8 @@ class PostForm extends React.Component {
 
   render() {
 
-    console.log(this.props)
-    console.log(this.state)
+    // console.log(this.props)
+    // console.log(this.state)
 
     if (this.props.currentUser) {
       return (
