@@ -32,7 +32,7 @@ export const createPost = (post) => (dispatch) => {
 };
 
 export const updatePost = (post) => (dispatch) => {
-  return PostAPIUtil.updatePost(post).then((post) => dispatch(recievePost(post)))
+  return PostAPIUtil.updatePost(post).then((post) => dispatch(recievePost(post)));
 };
 
 export const deletePost = (id) => (dispatch) => {

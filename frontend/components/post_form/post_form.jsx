@@ -1,6 +1,6 @@
 import React from "react";
 import { Redirect } from 'react-router-dom';
-// import { withRouter } from "react-router";
+import { withRouter } from "react-router";
 
 class PostForm extends React.Component {
   constructor(props) {
@@ -43,8 +43,13 @@ class PostForm extends React.Component {
       formData.append("post[photo]", this.state.photoFile);
     }
     formData.append("post[user_id]", this.state.user_id);
-
-    this.props.createPost(formData);
+    
+    this.props.createPost(formData).then((action) => {
+      // debugger;  
+        this.setState({ caption: "", photoUrl: null });
+        this.props.history.push(`/posts/${action.post.id}`);
+      }
+    );
   }
 
   render() {
@@ -74,4 +79,4 @@ class PostForm extends React.Component {
 
 }
 
-export default PostForm;
+export default withRouter(PostForm);
