@@ -11,8 +11,6 @@ class PostShow extends React.Component {
   
   componentDidMount() {
      this.props.fetchPost(this.props.postId);
-    //  console.log('the post:')
-    //  console.log(post);
 
   }
 
@@ -41,7 +39,7 @@ class PostShow extends React.Component {
     return (
       <div className="post-show-container">
         <img className="post-show-picture" src={postPicture} />
-        <div className='post-caption'>{postCaption}</div>
+        <div className="post-caption">{postCaption}</div>
       </div>
     );
   }

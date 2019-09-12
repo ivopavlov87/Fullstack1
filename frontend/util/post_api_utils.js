@@ -30,7 +30,10 @@ export const updatePost = post => {
   return $.ajax({
     method: "PATCH",
     url: `/api/posts/${post.id}`,
-    data: { post }
+    data: { post },
+    contentType: false,
+    processData: false,
+    error: err => console.log(err)
   });
 };
 
