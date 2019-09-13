@@ -9,7 +9,6 @@ const selectPosts = (posts) => {
 };
 
 const mapStateToProps = (state, ownProps) => {
-  // const sessionId =  state.session.id;
   const currentUser =  state.entities.users[state.session.id];
   const userId = parseInt(ownProps.match.params.userId);
   const user = state.entities.users[userId];

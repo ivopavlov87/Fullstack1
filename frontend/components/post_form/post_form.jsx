@@ -45,7 +45,6 @@ class PostForm extends React.Component {
     formData.append("post[user_id]", this.state.user_id);
     
     this.props.createPost(formData).then((action) => {
-      // debugger;  
         this.setState({ caption: "", photoUrl: null });
         this.props.history.push(`/posts/${action.post.id}`);
       }
@@ -65,9 +64,6 @@ class PostForm extends React.Component {
   // }
 
   render() {
-
-    // console.log(this.props)
-    // console.log(this.state)
 
     if (this.props.currentUser) {
       return (

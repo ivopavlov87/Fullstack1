@@ -5,59 +5,26 @@ import UserProfileItem from './user_profile_item';
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
-
-
   }
 
   componentDidMount(){
-    // debugger;
     this.props.fetchUser(this.props.userId)
     this.props.fetchPosts();
-    // debugger;
   }
 
   componentDidUpdate(previousProps){
     if (previousProps.match.params.userId !== this.props.match.params.userId){
       this.props.fetchUser(this.props.userId)
     };
-    // console.log("props posts:");
-    // console.log(this.props.posts);
   }
 
-  // componentWillUnmount() {
-  //   this.props.clearErrors();
-  // }
-
-  // renderErrors() {
-  //   return (
-  //     <ul className="errors">
-  //       {this.props.errors.map((error, i) => (
-  //         <li key={`error-${i}`}>{error}</li>
-  //       ))}
-  //     </ul>
-  //   );
-  // }
-
   render() {
-
-    // console.log("props:")
-    // console.log(this.props)
-
-    // if (!this.props.user) {
-    //   this.props.fetchUser(this.props.userId);
-    // }
 
     if (!this.props.user){
       return (
         <div className="user-profile">loading...</div>
       )
     }
-
-    // if (!this.props.post) {
-    //   this.props.fetchPost(this.props.postId);
-    // }
-
-
 
     let profilePic;
     if (this.props.user.photoURL){
@@ -73,16 +40,16 @@ class UserProfile extends React.Component {
       userPosts = <div className="user-profile">loading posts...</div>;
     } else {
 
-      let filteredPosts = this.props.posts.filter(post => post.user_id === user.id)
+    let filteredPosts = this.props.posts.filter(post => post.user_id === user.id)
 
-      userPosts =
-        <ul className="user-profile-posts">
-          {filteredPosts.map(post => (
-            <li className="post-index-list" key={post.id}>
-              <UserProfileItem post={post} />
-            </li>
-          ))}
-        </ul>
+    userPosts =
+      <ul className="user-profile-posts">
+        {filteredPosts.map(post => (
+          <li className="post-index-list" key={post.id}>
+            <UserProfileItem post={post} />
+          </li>
+        ))}
+      </ul>
     }
 
     return (
