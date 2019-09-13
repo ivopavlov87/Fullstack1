@@ -58,7 +58,7 @@ class UserProfile extends React.Component {
     // }
 
 
-    // let profilePic = <img className="user-profile-top-picture" src={window.default_profile_pic} />;
+
     let profilePic;
     if (this.props.user.photoURL){
       profilePic = <img className="user-profile-top-picture" src={this.props.user.photoURL} />
@@ -66,15 +66,18 @@ class UserProfile extends React.Component {
       profilePic = <img className="user-profile-top-picture" src={window.default_profile_pic} />
     }
 
-    // if(!user) return null;
+
     let user = this.props.user;
     let userPosts;
     if(!this.props.posts){
       userPosts = <div className="user-profile">loading posts...</div>;
     } else {
+
+      let filteredPosts = this.props.posts.filter(post => post.user_id === user.id)
+
       userPosts =
         <ul className="user-profile-posts">
-          {this.props.posts.map(post => (
+          {filteredPosts.map(post => (
             <li className="post-index-list" key={post.id}>
               <UserProfileItem post={post} />
             </li>

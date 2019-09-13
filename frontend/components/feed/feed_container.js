@@ -17,7 +17,6 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    // clearErrors: () => dispatch(clearSessionErrors())
     fetchPosts: () => dispatch(fetchPosts())
   };
 };
