@@ -10,7 +10,7 @@ const receiveUsers = users => ({
 });
 
 const receiveUser = user => ({
-  type: RECEIVE_ALL_USER,
+  type: RECEIVE_USER,
   user
 });
 

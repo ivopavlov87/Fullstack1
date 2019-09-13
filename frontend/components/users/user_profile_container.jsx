@@ -1,27 +1,30 @@
 import { connect } from "react-redux";
 import React from "react";
 import UserProfile from "./user_profile";
-import { withRouter } from "react-router";
-import { clearSessionErrors } from "../../actions/session_actions";
+import { fetchPosts } from '../../actions/post_actions';
+import { fetchUser } from "../../actions/user_actions";
 
-const mapStateToProps = state => {
-  return {
-    errors: state.errors.session,
-    sessionId: state.session.id,
-    currentUser: state.entities.users[state.session.id],
-    profilePicture: state.entities.users[state.session.id].photoURL
-  };
+const selectPosts = (posts) => {
+  return Object.keys(posts).reverse().map(id => posts[id]);
+};
+
+const mapStateToProps = (state, ownProps) => {
+  // const sessionId =  state.session.id;
+  const currentUser =  state.entities.users[state.session.id];
+  const userId = parseInt(ownProps.match.params.userId);
+  const user = state.entities.users[userId];
+  const posts = selectPosts(state.entities.posts);
+  // debugger;
+  // const profilePicture =  state.entities.users[state.session.id].photoURL;
+  return { currentUser, userId, user, posts };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    clearErrors: () => dispatch(clearSessionErrors())
+    // clearErrors: () => dispatch(clearSessionErrors())
+    fetchPosts: () => dispatch(fetchPosts()),
+    fetchUser: (id) => dispatch(fetchUser(id))
   };
 };
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(UserProfile)
-);
+export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);

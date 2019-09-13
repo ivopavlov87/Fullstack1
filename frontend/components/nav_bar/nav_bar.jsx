@@ -40,7 +40,7 @@ class NavBar extends React.Component {
     if (this.props.currentUser) {
       return (
         <div className="nav-bar">
-          <Link to="/">
+          <Link to="/feed">
             <p className="pictogram-name-text-nav-bar">Picto-gram</p>
           </Link>
           <div className="nav-bar-search">
@@ -54,7 +54,7 @@ class NavBar extends React.Component {
             </div>
             &nbsp;
             <div>
-              <Link to="/feed">
+              <Link to={`/users/${this.props.currentUser.id}`} >
                 <img className="nav-bar-profile-pic" src={window.blank_user} />
               </Link>
             </div>

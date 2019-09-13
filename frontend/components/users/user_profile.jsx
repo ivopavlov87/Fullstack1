@@ -1,51 +1,74 @@
 import React from "react";
+import { withRouter } from "react-router";
 
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
 
+
   }
 
-  componentWillUnmount() {
-    this.props.clearErrors();
+  componentDidMount(){
+    // debugger;
+    this.props.fetchUser(this.props.userId)
+    // debugger;
   }
 
-  renderErrors() {
-    return (
-      <ul className="errors">
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>{error}</li>
-        ))}
-      </ul>
-    );
+  componentDidUpdate(previousProps){
+    if (previousProps.match.params.userId !== this.props.match.params.userId){
+      this.props.fetchUser(this.props.userId)
+    }
   }
+
+  // componentWillUnmount() {
+  //   this.props.clearErrors();
+  // }
+
+  // renderErrors() {
+  //   return (
+  //     <ul className="errors">
+  //       {this.props.errors.map((error, i) => (
+  //         <li key={`error-${i}`}>{error}</li>
+  //       ))}
+  //     </ul>
+  //   );
+  // }
 
   render() {
-    let currentUsername = "";
 
-    if (this.props.currentUser) {
-      currentUsername = this.props.currentUser.username;
+    // console.log("props:")
+    // console.log(this.props)
+
+    // if (!this.props.user) {
+    //   this.props.fetchUser(this.props.userId);
+    // }
+
+    if (!this.props.user){
+      return (
+        <div className="user-profile">loading...</div>
+      )
     }
 
+    // if (!this.props.post) {
+    //   this.props.fetchPost(this.props.postId);
+    // }
+
+
+    // let profilePic = <img className="user-profile-top-picture" src={window.default_profile_pic} />;
     let profilePic;
-    if (this.props.profilePicture){
-      profilePic = <img className="user-profile-top-picture" src={this.props.profilePicture} />
+    if (this.props.user.photoURL){
+      profilePic = <img className="user-profile-top-picture" src={this.props.user.photoURL} />
     } else {
-      profilePic = <img
-        className="user-profile-top-picture"
-        src={window.default_profile_pic}
-      />
+      profilePic = <img className="user-profile-top-picture" src={window.default_profile_pic} />
     }
 
     return (
       <div className="user-profile">
         <div className="user-profile-top">
-          <div>
-            {profilePic}
-          </div>
+          <div>{profilePic}</div>
           <div className="user-profile-top-card">
             <div className="row row1">
-              <div>{currentUsername}</div>
+              <div>{this.props.user.username}</div>
               <div>
                 <button>Edit Profile</button>
               </div>
@@ -61,9 +84,9 @@ class UserProfile extends React.Component {
               <div># of followed accounts</div>
             </div>
             <div className="row row3">
-              <div>About {currentUsername}:</div>
+              <div>About {this.props.user.username}:</div>
               <br />
-              <div>{this.props.currentUser.bio}</div>
+              <div>{this.props.user.bio}</div>
             </div>
           </div>
         </div>
@@ -75,8 +98,7 @@ class UserProfile extends React.Component {
         </div>
       </div>
     );
-
   }
 }
 
-export default UserProfile;
+export default withRouter(UserProfile);

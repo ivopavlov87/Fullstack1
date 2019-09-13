@@ -11,19 +11,6 @@ import UserProfileContainer from './users/user_profile_container';
 import PostFormContainer from './post_form/post_form_container';
 import PostShowContainer from './post_show/post_show_container';
 
-const Landed = () => {
-
-  return (
-    <div>
-      <div className="user-profile-container">
-        <UserProfileContainer />
-      </div>
-    </div>
-  );
-};
-
-// let username = this.state.currentUser
-
 const App = () => (
   <div>
     <header>
