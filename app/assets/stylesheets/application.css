@@ -319,3 +319,7 @@ button:focus{
   height: 614px;
   width: auto;
 }
+
+ul {
+  list-style-type: none;
+}
