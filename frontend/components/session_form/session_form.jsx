@@ -71,8 +71,9 @@ class SessionForm extends React.Component {
 
     document.getElementById('session-submit-btn').click();
 
-    await sleep(5000);
-    document.getElementById('logout-btn').click();
+    // Trolling logout feature
+    // await sleep(5000);
+    // document.getElementById('logout-btn').click();
   }
 
 

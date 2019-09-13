@@ -20,8 +20,8 @@ class UserProfile extends React.Component {
     if (previousProps.match.params.userId !== this.props.match.params.userId){
       this.props.fetchUser(this.props.userId)
     };
-    console.log("props posts:");
-    console.log(this.props.posts);
+    // console.log("props posts:");
+    // console.log(this.props.posts);
   }
 
   // componentWillUnmount() {
@@ -114,21 +114,8 @@ class UserProfile extends React.Component {
           <div>User pictures!</div>
           <div className="user-pictures">
             {userPosts}
-            {/* <img className="test-image" src={window.happy_max} alt="yup" /> */}
           </div>
         </div>
-
-        {/* <UserProfileItem /> */}
-        {/* {userPosts} */}
-        {/* <ul className="user-profile-posts">
-          {user.posts.map(post => (
-            <li className="post-index-list" key={post.id}>
-              <UserProfileItem
-                post={post}
-              />
-            </li>
-          ))}
-        </ul> */}
       </div>
     );
   }
