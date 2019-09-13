@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router";
+import UserProfileItem from './user_profile_item';
 
 class UserProfile extends React.Component {
   constructor(props) {
@@ -11,13 +12,16 @@ class UserProfile extends React.Component {
   componentDidMount(){
     // debugger;
     this.props.fetchUser(this.props.userId)
+    this.props.fetchPosts();
     // debugger;
   }
 
   componentDidUpdate(previousProps){
     if (previousProps.match.params.userId !== this.props.match.params.userId){
       this.props.fetchUser(this.props.userId)
-    }
+    };
+    console.log("props posts:");
+    console.log(this.props.posts);
   }
 
   // componentWillUnmount() {
@@ -62,6 +66,22 @@ class UserProfile extends React.Component {
       profilePic = <img className="user-profile-top-picture" src={window.default_profile_pic} />
     }
 
+    // if(!user) return null;
+    let user = this.props.user;
+    let userPosts;
+    if(!this.props.posts){
+      userPosts = <div className="user-profile">loading posts...</div>;
+    } else {
+      userPosts =
+        <ul className="user-profile-posts">
+          {this.props.posts.map(post => (
+            <li className="post-index-list" key={post.id}>
+              <UserProfileItem post={post} />
+            </li>
+          ))}
+        </ul>
+    }
+
     return (
       <div className="user-profile">
         <div className="user-profile-top">
@@ -93,9 +113,22 @@ class UserProfile extends React.Component {
         <div className="user-page">
           <div>User pictures!</div>
           <div className="user-pictures">
-            <img className="test-image" src={window.happy_max} alt="yup" />
+            {userPosts}
+            {/* <img className="test-image" src={window.happy_max} alt="yup" /> */}
           </div>
         </div>
+
+        {/* <UserProfileItem /> */}
+        {/* {userPosts} */}
+        {/* <ul className="user-profile-posts">
+          {user.posts.map(post => (
+            <li className="post-index-list" key={post.id}>
+              <UserProfileItem
+                post={post}
+              />
+            </li>
+          ))}
+        </ul> */}
       </div>
     );
   }
