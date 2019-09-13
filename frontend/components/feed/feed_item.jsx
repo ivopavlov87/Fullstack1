@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router";
+import { Link } from 'react-router-dom';
 
 class FeedItem extends React.Component {
   constructor(props) {
@@ -9,6 +10,9 @@ class FeedItem extends React.Component {
   render() {
     return (
       <div className="post-container">
+        <Link to={`/users/${this.props.post.user_id}`}>
+          See the profile of the user for this image
+        </Link>
         {this.props.post.caption}
         <img
           className="test-image"
