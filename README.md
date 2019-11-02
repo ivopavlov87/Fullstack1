@@ -14,6 +14,18 @@ The backend utilises Ruby on Rails due to its convention over configuration to a
 
 To keep everything secure, password hashing and salting is accomplished via BCrypt and no passwords are stored on the database. Database constraints and model level validations were implemented for added stability and security. Session tokens, or cookies, were used to persist user logins through a refresh.
 
+
+```ruby
+  def password=(password)
+    @password = password
+    self.password_digest = BCrypt::Password.create(password)
+  end
+
+  def is_password?(password)
+    BCrypt::Password.new(self.password_digest).is_password?(password)
+  end
+```
+
 ### Images
 
 ```javascript
