@@ -16,7 +16,20 @@ To keep everything secure, password hashing and salting is accomplished via BCry
 
 ### Images
 
-Users are able to upload images and add captions to their posts. User generated images are stored on AWS S3.
+```javascript
+export const createPost = post => {
+  return $.ajax({
+    method: "POST",
+    url: `/api/posts`,
+    data: post,
+    contentType: false,
+    processData: false,
+    error: err => console.log(err)
+  });
+};
+```
+
+Users are able to upload images and add captions to their posts. User generated images are stored on AWS S3 with AJAX request.
 
 ## Future Features
 
