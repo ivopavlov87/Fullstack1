@@ -10,7 +10,7 @@ The backend utilises Ruby on Rails due to its convention over configuration to a
 
 ### Authentication
 
-![Demo login](https://github.com/ivopavlov87/Fullstack1/blob/master/login-gif.gif)
+<div style="text-align:center"><img src="https://github.com/ivopavlov87/Fullstack1/blob/master/login-gif.gif" alt="Demo login" /></div>
 
 To keep everything secure, password hashing and salting is accomplished via BCrypt and no passwords are stored on the database. Database constraints and model level validations were implemented for added stability and security. Session tokens, or cookies, were used to persist user logins through a refresh.
 
