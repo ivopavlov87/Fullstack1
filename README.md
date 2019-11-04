@@ -9,9 +9,10 @@ Picto-gram is a social media single-page web application where users can create 
 * [PostgreSQL](https://www.postgresql.org/)
 * [Ruby on Rails](https://rubyonrails.org/)
 * [React](https://reactjs.org/)
+* [Redux](https://redux.js.org/)
 * [Amazon Web Services S3](https://aws.amazon.com/s3/)
 
-The backend utilises Ruby on Rails due to its convention over configuration to allow for quick and standardized setup and deployment. The frontend is implemented using React and Redux for granular component-rendering via the VirtualDOM. The ability to reuse React components is responsible for the universal feel and look across the site. The Redux development tools were instrumental. Managing the backend user and post data was accomplished using postgreSQL and Amazon Web Services S3 to store the user-uploaded images.
+The backend utilises Ruby on Rails due to its convention over configuration to allow for quick and standardized setup and deployment. The frontend is implemented using React and Redux for granular component-rendering via the VirtualDOM. The ability to reuse React components is responsible for the universal feel and look across the site. The Redux development tools were instrumental. Managing the backend user and post data was accomplished using PostgreSQL and Amazon Web Services S3 to store the user-uploaded images.
 
 ```ruby
   create_table "posts", force: :cascade do |t|
