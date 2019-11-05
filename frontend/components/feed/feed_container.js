@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import React from "react";
 import Feed from "./feed";
 import { fetchPosts } from "../../actions/post_actions";
+import { fetchUser } from "../../actions/user_actions";
 
 const selectPosts = posts => {
   return Object.keys(posts)
@@ -17,7 +18,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchPosts: () => dispatch(fetchPosts())
+    fetchPosts: () => dispatch(fetchPosts()),
+    fetchUser: (id) => dispatch(fetchUser(id))
   };
 };
 

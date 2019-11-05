@@ -18,11 +18,14 @@ class Feed extends React.Component {
     if (!this.props.posts) {
       feedPosts = <div className="user-profile">loading posts...</div>;
     } else {
+
+      // let testvar = "testvar";
+
       feedPosts = (
         <ul className="user-profile-posts">
           {this.props.posts.map(post => (
             <li className="post-index-list" key={post.id}>
-              <FeedItem post={post} />
+              <FeedItem post={post} postAuthor={this.props.fetchUser}/>
             </li>
           ))}
         </ul>
