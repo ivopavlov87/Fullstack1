@@ -13,7 +13,6 @@ class FeedItem extends React.Component {
 
   
   componentDidMount(){
-    // console.log("function", this.props.testThing(this.props.post.user_id))
     this.props.postAuthor(this.props.post.user_id).then(res => this.postAuthor = res.user)
   }
 
@@ -21,9 +20,9 @@ class FeedItem extends React.Component {
 
     let profilePic;
     if (this.postAuthor.photoURL) {
-      profilePic = <img className="user-profile-top-picture" src={this.postAuthor.photoURL} />
+      profilePic = <img className="user-profile-top-picture" src={this.postAuthor.photoURL} title={this.postAuthor.username} />
     } else {
-      profilePic = <img className="user-profile-top-picture" src={window.default_profile_pic} />
+      profilePic = <img className="user-profile-top-picture" src={window.default_profile_pic} title={this.postAuthor.username} />
     }
 
     
@@ -31,10 +30,11 @@ class FeedItem extends React.Component {
     return (
       <div className="post-container">
         <Link to={`/users/${this.props.post.user_id}`}>
-          <div>{profilePic}</div>
-          {this.postAuthor.username} posted this picture
+          <div>
+            {profilePic}
+            {this.postAuthor.username}
+          </div>
         </Link>
-        {this.props.post.caption}
         <img
           className="test-image"
           src={this.props.post.photoURL}
@@ -42,7 +42,8 @@ class FeedItem extends React.Component {
             this.props.history.push(`/posts/${this.props.post.id}`)
           }
           alt={this.props.post.caption}
-        />
+          />
+          {this.props.post.caption}
       </div>
     );
   }
