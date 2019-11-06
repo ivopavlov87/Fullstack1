@@ -25,8 +25,6 @@ class FeedItem extends React.Component {
       profilePic = <img className="user-profile-feed-picture" src={window.default_profile_pic} title={this.postAuthor.username} />
     }
 
-    
-
     return (
       <div className="post-container">
         <Link to={`/users/${this.props.post.user_id}`}>

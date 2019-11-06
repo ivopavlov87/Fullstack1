@@ -23,19 +23,20 @@ user = User.create!(username: "maxwolfwood", email: "iam@dog.com", password: "wo
 file1 = open('https://picto-gram-seeds.s3-us-west-2.amazonaws.com/profile_max.jpg')
 user.profile_picture.attach(io: file1, filename: 'profile_max.jpg')
 
-post1 = Post.create!(user_id: user.id, caption: 'woof woof (taking a nappy-nap)')
+
 file2 = open('https://picto-gram-seeds.s3-us-west-2.amazonaws.com/sleepy_max.jpg')
-post1.photo.attach(io: file2, filename: 'sleepy_max.jpg')
+Post.create!(user_id: user.id, caption: 'woof woof (taking a nappy-nap)').photo.attach(io: file2, filename: 'sleepy_max.jpg')
+## post1.photo.attach(io: file2, filename: 'sleepy_max.jpg')
 
-post2 = Post.create!(user_id: user.id, caption: 'OMG SNOW!')
-file3 = open('https://picto-gram-seeds.s3-us-west-2.amazonaws.com/snow_max.jpg')
-post2.photo.attach(io: file3, filename: 'snow_max.jpg')
+## post2 = Post.create!(user_id: user.id, caption: 'OMG SNOW!')
+## file3 = open('https://picto-gram-seeds.s3-us-west-2.amazonaws.com/snow_max.jpg')
+## post2.photo.attach(io: file3, filename: 'snow_max.jpg')
 
-post3 = Post.create!(user_id: user.id, caption: 'Enjoying a nice walk!')
-file4 = open('https://picto-gram-seeds.s3-us-west-2.amazonaws.com/happy_max.jpg')
-post3.photo.attach(io: file4, filename: 'happy_max.jpg')
+## post3 = Post.create!(user_id: user.id, caption: 'Enjoying a nice walk!')
+## file4 = open('https://picto-gram-seeds.s3-us-west-2.amazonaws.com/happy_max.jpg')
+## post3.photo.attach(io: file4, filename: 'happy_max.jpg')
 
-post4 = Post.create!(user_id: user.id, caption: "Strike a pose!")
-file5 = open('https://picto-gram-seeds.s3-us-west-2.amazonaws.com/pretty_max.jpg')
-post4.photo.attach(io: file5, filename: 'pretty_max.jpg')
+## post4 = Post.create!(user_id: user.id, caption: "Strike a pose!")
+## file5 = open('https://picto-gram-seeds.s3-us-west-2.amazonaws.com/pretty_max.jpg')
+## post4.photo.attach(io: file5, filename: 'pretty_max.jpg')
 
