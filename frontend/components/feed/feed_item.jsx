@@ -20,9 +20,9 @@ class FeedItem extends React.Component {
 
     let profilePic;
     if (this.postAuthor.photoURL) {
-      profilePic = <img className="user-profile-top-picture" src={this.postAuthor.photoURL} title={this.postAuthor.username} />
+      profilePic = <img className="user-profile-feed-picture" src={this.postAuthor.photoURL} title={this.postAuthor.username} />
     } else {
-      profilePic = <img className="user-profile-top-picture" src={window.default_profile_pic} title={this.postAuthor.username} />
+      profilePic = <img className="user-profile-feed-picture" src={window.default_profile_pic} title={this.postAuthor.username} />
     }
 
     
@@ -30,11 +30,12 @@ class FeedItem extends React.Component {
     return (
       <div className="post-container">
         <Link to={`/users/${this.props.post.user_id}`}>
-          <div>
+          <div className="feed-post-head">
             {profilePic}
             {this.postAuthor.username}
           </div>
         </Link>
+        <div className="feed-post-pic-container">
         <img
           className="test-image"
           src={this.props.post.photoURL}
@@ -43,7 +44,8 @@ class FeedItem extends React.Component {
           }
           alt={this.props.post.caption}
           />
-          {this.props.post.caption}
+        </div>
+          {this.postAuthor.username}: {this.props.post.caption}
       </div>
     );
   }

@@ -32,7 +32,7 @@ time, mark, audio, video {
     border: 0;
     font-size: 100%;
     font: inherit;
-  vertical-align: baseline;
+    vertical-align: baseline;
 }
 
 body{
@@ -244,6 +244,20 @@ button:focus{
   max-height: 614px;
   object-fit: scale-down;
   display: flex;
+  margin: 0 auto;
+}
+
+.feed-post-head{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+}
+
+.feed-post-pic-container{
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
 }
 
 .user-profile{
@@ -309,6 +323,12 @@ button:focus{
     margin: 5px;
 }
 
+.post-container{
+  margin: 50px;
+  background-color: white;
+  border: 1px solid #e6e6e6;
+}
+
 .post-show-container{
   display: flex;
   flex-direction: column;
@@ -318,6 +338,15 @@ button:focus{
 .post-show-picture{
   height: 614px;
   width: auto;
+}
+
+.user-profile-feed-picture{
+  width: 42px;
+  height: 42px;
+  border-radius: 100px;
+  object-fit: cover;
+  object-position: 100% 0;
+  margin: 5px;
 }
 
 ul {

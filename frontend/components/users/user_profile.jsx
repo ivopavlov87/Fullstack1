@@ -33,24 +33,26 @@ class UserProfile extends React.Component {
       profilePic = <img className="user-profile-top-picture" src={window.default_profile_pic} />
     }
 
-
+    let filteredPosts;
     let user = this.props.user;
     let userPosts;
     if(!this.props.posts){
       userPosts = <div className="user-profile">loading posts...</div>;
     } else {
 
-    let filteredPosts = this.props.posts.filter(post => post.user_id === user.id)
+      filteredPosts = this.props.posts.filter(post => post.user_id === user.id)
 
-    userPosts =
-      <ul className="user-profile-posts">
-        {filteredPosts.map(post => (
-          <li className="post-index-list" key={post.id}>
-            <UserProfileItem post={post} />
-          </li>
-        ))}
-      </ul>
+      userPosts =
+        <ul className="user-profile-posts">
+          {filteredPosts.map(post => (
+            <li className="post-index-list" key={post.id}>
+              <UserProfileItem post={post} />
+            </li>
+          ))}
+        </ul>
     }
+
+    let postCount = filteredPosts ? filteredPosts.length : 0;
 
     return (
       <div className="user-profile">
@@ -69,7 +71,7 @@ class UserProfile extends React.Component {
               </div>
             </div>
             <div className="row row2">
-              <div># of posts</div>&nbsp;|&nbsp;
+              <div>{postCount} posts</div>&nbsp;|&nbsp;
               <div># of followers</div>&nbsp;|&nbsp;
               <div># of followed accounts</div>
             </div>
