@@ -33,6 +33,7 @@ time, mark, audio, video {
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+    text-decoration: none;
 }
 
 body{
@@ -208,7 +209,7 @@ button:focus{
 .nav-bar{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: white;
   border-bottom: 1px solid darkgray;
   margin-bottom: 10px;
@@ -251,7 +252,6 @@ button:focus{
   display: flex;
   flex-direction: row;
   align-items: center;
-  text-decoration: none;
   color: black;
 }
 
@@ -324,16 +324,24 @@ button:focus{
 }
 
 .post-container{
-  margin: 50px;
+  margin: 0px auto 50px auto;
   background-color: white;
   border: 1px solid #e6e6e6;
+  width: 614px;
 }
 
 .post-show-container{
+  margin: 0 auto;
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  width: 614px;
+}
+
+/* .post-show-container{
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */
 
 .post-show-picture{
   height: 614px;

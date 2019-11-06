@@ -46,7 +46,7 @@ class UserProfile extends React.Component {
         <ul className="user-profile-posts">
           {filteredPosts.map(post => (
             <li className="post-index-list" key={post.id}>
-              <UserProfileItem post={post} />
+              <UserProfileItem post={post} userPic={this.props.user.photoURL} user={this.props.user.username} />
             </li>
           ))}
         </ul>

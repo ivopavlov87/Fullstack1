@@ -19,8 +19,6 @@ class Feed extends React.Component {
       feedPosts = <div className="user-profile">loading posts...</div>;
     } else {
 
-      // let testvar = "testvar";
-
       feedPosts = (
         <ul className="user-profile-posts">
           {this.props.posts.map(post => (
