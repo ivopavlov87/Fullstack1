@@ -27,7 +27,7 @@ user2.profile_picture.attach(io: file2, filename: 'profile_ivo22.jpg')
 
 user3 = User.create(username: "rmohr", email: "rmohr@email.com", password: "123456", bio: "Just a city girl, took the midnight train going anywhere!")
 file3 = open('https://picto-gram-seeds.s3-us-west-2.amazonaws.com/A22EA09E-DAC7-45B9-8A39-963E98E9F92C_1_201_a.jpeg')
-user3.profile_picture.attach(io: file2, filename: 'profile_rmohr.jpg')
+user3.profile_picture.attach(io: file3, filename: 'profile_rmohr.jpg')
 
 ## post1 = Post.create!(user_id: user.id, caption: 'woof woof (taking a nappy-nap)')
 ## file2 = open('https://picto-gram-seeds.s3-us-west-2.amazonaws.com/sleepy_max.jpg')
