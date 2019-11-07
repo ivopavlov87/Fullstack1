@@ -159,9 +159,13 @@ body{
 }
 
 footer{
-  display: flex;
-  bottom: 25px;
-  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  /* margin: 0 auto; */
+  text-align: center;
+  z-index: 100;
+  background-color: #fafafa;
 }
 
 .footer-links{
@@ -335,6 +339,11 @@ button:focus{
   background-color: white;
   border: 1px solid #e6e6e6;
   width: 614px;
+}
+
+.new-post-form-container{
+  display: flex;
+  justify-content: center;
 }
 
 /* .post-show-container{

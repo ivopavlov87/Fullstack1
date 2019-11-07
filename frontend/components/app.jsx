@@ -30,11 +30,16 @@ const App = () => (
     <footer>
       <a
         className="footer-links"
-        href="https://github.com/ivopavlov87/Fullstack1"
-      >
+        href="https://www.ivopavlov.com">
+        My Portfolio Site
+      </a>
+      &nbsp;|&nbsp;
+      <a
+        className="footer-links"
+        href="https://github.com/ivopavlov87/Fullstack1">
         Pictogram-GitHub
       </a>
-      &nbsp; &nbsp; &nbsp;
+      &nbsp;|&nbsp;
       <a className="footer-links" href="https://www.instagram.com">
         Instagram
       </a>

@@ -67,18 +67,20 @@ class PostForm extends React.Component {
 
     if (this.props.currentUser) {
       return (
-        <form onSubmit={this.handleSubmit}>
-          <input type="file" className="post-photo-upload-input" onChange={this.handleFile} />
-          <br />
-          <br />
-          <input type="text" maxLength="500" placeholder="Add a caption" onChange={this.handleChange("caption")} />
-          <br />
-          <br />
-          <input type="submit" className="post-submit-input" value="upload" />
-          {/* <div>
-              {this.renderErrors()}
-          </div> */}
-        </form>
+        <div className="new-post-form-container">
+          <form onSubmit={this.handleSubmit}>
+            <input type="file" className="post-photo-upload-input" onChange={this.handleFile} />
+            <br />
+            <br />
+            <textarea rows="5" cols="55" maxLength="500" placeholder="Add a caption (Maximum 240 chars)" onChange={this.handleChange("caption")} />
+            <br />
+            <br />
+            <input type="submit" className="post-submit-input" value="upload" />
+            {/* <div>
+                {this.renderErrors()}
+            </div> */}
+          </form>
+        </div>
       );
     } else {
       return (

@@ -32,7 +32,7 @@ class UserProfileItem extends React.Component {
           alt={this.props.post.caption}
         />
         </div>
-        {this.props.post.caption}
+        {this.props.user}:&nbsp;{this.props.post.caption}
       </div>
     );
   }

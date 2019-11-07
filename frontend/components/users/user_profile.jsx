@@ -33,6 +33,22 @@ class UserProfile extends React.Component {
       profilePic = <img className="user-profile-top-picture" src={window.default_profile_pic} />
     }
 
+    let profileOptions;
+    if(this.props.userId === this.props.currentUser.id){
+      profileOptions = <div>
+      <div>
+        <button>Edit Profile</button>
+      </div>
+        <div>
+          <button>
+            <i className="fa fa-gear"></i>
+          </button>
+        </div>
+      </div>
+    } else {
+      profileOptions = <div></div>
+    }
+
     let filteredPosts;
     let user = this.props.user;
     let userPosts;
@@ -61,14 +77,7 @@ class UserProfile extends React.Component {
           <div className="user-profile-top-card">
             <div className="row row1">
               <div>{this.props.user.username}</div>
-              <div>
-                <button>Edit Profile</button>
-              </div>
-              <div>
-                <button>
-                  <i className="fa fa-gear"></i>
-                </button>
-              </div>
+              {profileOptions}
             </div>
             <div className="row row2">
               <div>{postCount} posts</div>&nbsp;|&nbsp;
