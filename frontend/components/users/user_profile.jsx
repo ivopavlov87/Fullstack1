@@ -40,11 +40,11 @@ class UserProfile extends React.Component {
       <div>
           <button onClick={() => {this.props.history.push(`/users/${this.props.userId}/edit`)}}>Edit Profile</button>
       </div>
-        <div>
+        {/* <div>
           <button>
             <i className="fa fa-gear"></i>
           </button>
-        </div>
+        </div> */}
       </div>
     } else {
       profileOptions = <div></div>

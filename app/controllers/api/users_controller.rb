@@ -21,12 +21,16 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
   def update
     # debugger
     @user = User.find(params[:id])
 
     if @user.update(user_params)
-      render :edit
+      render :show
     else
       render json: @user.errors.full_messages, status: 422
     end

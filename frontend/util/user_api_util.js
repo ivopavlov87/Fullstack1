@@ -24,6 +24,16 @@ export const editUser = (user) => {
   });
 };
 
+export const updateUserPicture = (id, data) => {
+  return $.ajax({
+    url: `api/users/${id}`,
+    method: `PATCH`,
+    data: data,
+    contentType: false,
+    processData: false
+  });
+};
+
 export const createUser = (formData) => {
   return $.ajax({
     method: 'POST',

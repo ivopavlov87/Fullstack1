@@ -36,3 +36,7 @@ export const updateUser = (user) => (dispatch) => {
     user => dispatch(receiveUser(user)));
     // , err => dispatch(receiveErrors(err.responseJSON)));
 };
+
+export const updateUserPicture = (id, data) => (dispatch) => {
+  return UserAPIUtil.updateUserPicture(id, data).then((user) => dispatch(receiveUser(user)));
+};
