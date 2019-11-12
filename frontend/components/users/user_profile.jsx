@@ -37,7 +37,7 @@ class UserProfile extends React.Component {
     if(this.props.userId === this.props.currentUser.id){
       profileOptions = <div>
       <div>
-        <button>Edit Profile</button>
+          <button onClick={() => {this.props.history.push(`/users/${this.props.userId}/edit`)}}>Edit Profile</button>
       </div>
         <div>
           <button>

@@ -14,12 +14,13 @@ export const fetchUser = (id) => {
 };
 
 export const editUser = (user) => {
+  console.log("user", user);
   return $.ajax({
-    method: "PATCH",
     url: `/api/users/${user.id}`,
+    method: 'PATCH',
     data: { user },
-    processData: false,
-    contentType: false
+    // processData: false,
+    // contentType: false
   });
 };
 

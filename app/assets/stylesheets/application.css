@@ -366,6 +366,15 @@ button:focus{
   margin: 5px;
 }
 
+.user-edit-picture{
+  width: 250px;
+  height: 250px;
+  border-radius: 125px;
+  object-fit: cover;
+  object-position: 100% 0;
+  margin: 5px;
+}
+
 ul {
   list-style-type: none;
 }

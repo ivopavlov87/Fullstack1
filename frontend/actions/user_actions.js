@@ -14,10 +14,10 @@ const receiveUser = user => ({
   user
 });
 
-const updateUser = user => ({
-  type: UPDATE_USER,
-  user
-});
+const receiveErrors = (errors) => ({
+  type: RECEIVE_SESSION_ERRORS,
+  errors
+}); 
 
 export const fetchUsers = () => dispatch => {
   return UserAPIUtil.fetchUsers().then(users => dispatch(receiveUsers(users)));
@@ -27,6 +27,12 @@ export const fetchUser = (id) => dispatch => {
   return UserAPIUtil.fetchUser(id).then(user => dispatch(receiveUser(user)));
 }
 
-export const createUser = (formData) => dispatch => {
-  return UserAPIUtil.createUser(formData).then(user => dispatch(updateUser(user)));
-}
+// export const createUser = (formData) => dispatch => {
+//   return UserAPIUtil.createUser(formData).then(user => dispatch(updateUser(user)));
+// }
+
+export const updateUser = (user) => (dispatch) => {
+  return UserAPIUtil.editUser(user).then(
+    user => dispatch(receiveUser(user)));
+    // , err => dispatch(receiveErrors(err.responseJSON)));
+};
