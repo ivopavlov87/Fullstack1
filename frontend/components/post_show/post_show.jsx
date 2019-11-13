@@ -10,6 +10,8 @@ class PostShow extends React.Component {
       postAuthor: "",
     }
 
+    this.handleDelete = this.handleDelete.bind(this);
+
   }
 
 
@@ -23,7 +25,25 @@ class PostShow extends React.Component {
     })
   }
 
+  handleDelete(){
+    this.props.deletePost(this.props.postId);
+    this.props.history.push('/feed')
+  }
+
   render() {
+
+    let deleteOption = ""
+    if (this.state.postAuthor.id === this.props.currentUser.id) {
+      deleteOption = <div>
+        <button
+          className="delete-post-btn"
+          onClick={this.handleDelete}
+          type="button"
+          value={"otherFormBtn"}>
+        X
+        </button>
+      </div>
+    }
 
     let postPicture;
     let postCaption;
@@ -50,12 +70,16 @@ class PostShow extends React.Component {
 
     return (
       <div className="post-show-container">
+        <div className="post-top">
         <Link to={`/users/${this.state.postAuthor.id}`}>
           <div className="feed-post-head">
             {profilePic}
             {this.state.postAuthor.username}
           </div>
         </Link>
+          {deleteOption}
+        </div>
+        
         <div className="feed-post-pic-container">
           <img className="test-image" src={postPicture} />
         </div>

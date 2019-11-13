@@ -10,21 +10,34 @@ class FeedItem extends React.Component {
       postAuthor: "",
     }
 
+    this.handleDelete = this.handleDelete.bind(this);
+
   }
 
-
+  handleDelete() {
+    this.props.deletePost(this.props.post.id);
+  }
 
   componentDidMount() {
     this.props.postAuthor(this.props.post.user_id).then(res => {
-          return (this.setState({ postAuthor: res.user }))
+      return (this.setState({ postAuthor: res.user }))
     })
   }
-  
-  // componentDidMount(){
-  //   this.props.postAuthor(this.props.post.user_id).then(res => this.postAuthor = res.user)
-  // }
 
   render() {
+
+    let deleteOption = ""
+    if (this.state.postAuthor.id === this.props.currentUser.id) {
+      deleteOption = <div>
+        <button
+          className="delete-post-btn"
+          onClick={this.handleDelete}
+          type="button"
+          value={"otherFormBtn"}>
+          X
+        </button>
+      </div>
+    }
 
     let profilePic;
     if (this.state.postAuthor.photoURL) {
@@ -35,12 +48,15 @@ class FeedItem extends React.Component {
 
     return (
       <div className="post-container">
+        <div className="post-top">
         <Link to={`/users/${this.props.post.user_id}`}>
           <div className="feed-post-head">
             {profilePic}
             {this.state.postAuthor.username}
           </div>
         </Link>
+        {deleteOption}
+      </div>
         <div className="feed-post-pic-container">
         <img
           className="test-image"

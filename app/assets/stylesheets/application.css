@@ -378,3 +378,9 @@ button:focus{
 ul {
   list-style-type: none;
 }
+
+.post-top{
+  display: flex;
+  justify-content: space-between;
+
+}

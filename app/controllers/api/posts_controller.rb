@@ -40,11 +40,12 @@ class Api::PostsController < ApplicationController
   end
 
   def destroy
+    @posts = Post.all
     @post = Post.find(params[:id])
 
     if @post
       @post.destroy
-      render :delete
+      render :index
     else
       render json: @post.errors.full_messages, status: 404
     end
