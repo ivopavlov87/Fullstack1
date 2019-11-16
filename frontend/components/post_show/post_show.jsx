@@ -8,21 +8,52 @@ class PostShow extends React.Component {
 
     this.state = {
       postAuthor: "",
+      comments: "",
+      commentBody: ""
     }
 
+    // for deleting posts
     this.handleDelete = this.handleDelete.bind(this);
+
+    // for adding comments
+    this.handleComment = this.handleComment.bind(this)
 
   }
 
+  update(field) {
+    return (e) => {
+      this.setState({ [field]: e.target.value });
+    }
+  }
+
+  matchCommentsToPost(comment){
+    comment.post_id === this.props.postId
+  }
+
+  handleComment(e) {
+    e.preventDefault();
+    const comment = { body: this.state.commentBody, post_id: this.props.postId, user_id: this.props.currentUser.id };
+    this.props.createComment(comment)
+      .then(() => { this.props.fetchPost(this.props.post.id) })
+    this.setState({ commentBody: '' });
+  }
 
   
   componentDidMount() {
+    
     this.props.fetchPost(this.props.postId).then(res => {
-     return (
-      this.props.fetchUser(res.post.user_id).then(res => {
-        return (this.setState({postAuthor: res.user}))
-      }))
-    })
+      return (
+        this.props.fetchUser(res.post.user_id).then(res => {
+          return (this.setState({postAuthor: res.user}))
+        }))
+      })
+      
+      this.props.fetchPostComments(this.props.postId).then(res => {
+        // console.log("res comments", res.comments);
+        this.setState({comments: Object.values(res.comments)})
+        // this.setState({comments: res.comments.filter(this.matchCommentsToPost(comment))});
+        // console.log("filtered comments", this.state.comments)
+      })
   }
 
   handleDelete(){
@@ -31,6 +62,9 @@ class PostShow extends React.Component {
   }
 
   render() {
+
+    console.log("props", this.props)
+    console.log("state", this.state)
 
     let deleteOption = ""
     if (this.state.postAuthor.id === this.props.currentUser.id) {
@@ -44,6 +78,51 @@ class PostShow extends React.Component {
         </button>
       </div>
     }
+
+    // let postComments = Object.values(this.props.post.comments).map(comment => {
+    //   return (
+    //     <div
+    //       // key={comment.id - comment.user_id / 3}
+    //       className="post-show-comment">
+    //       <Link
+    //         className="profile-link"
+    //         to={`/users/${comment.user_id}`}
+    //       >
+    //         {comment.author}
+    //       </Link>
+    //       <span className="comment-boyd">
+    //         &nbsp;{comment.body}
+    //       </span>
+    //       {comment.user_id === this.props.currentUser.id ? (
+    //         <button
+    //           className="delete-comment-button"
+    //           // onClick={() => this.props.deleteComment(comment.id)
+    //           //   .then(() => { this.props.fetchPost(this.props.post.id) })
+    //           //   .then(() => this.props.clearErrors())}
+    //           >
+    //           X
+    //           </button>
+    //       ) : (
+    //           <div></div>
+    //         )}
+    //     </div>
+    //   )
+    // })
+
+    // let theComments = this.state.comments.filter(comment => {
+    //   comment.post_id === this.props.postId
+    // })
+
+    // debugger;
+    let theComments = this.props.post && this.props.post.comments ? 
+      Object.values(this.props.post.comments).map(comment => {
+        return <div>{comment.author}:&nbsp;{comment.body}</div>
+      })
+      // <div>
+      //   <li>"Another Test"</li>
+      //   <li>"Yet again"</li>
+      // </div>
+     : <div></div>
 
     let postPicture;
     let postCaption;
@@ -84,6 +163,25 @@ class PostShow extends React.Component {
           <img className="test-image" src={postPicture} />
         </div>
           {postCaption}
+          <br />
+            {theComments}
+          {/* <ul>
+          </ul> */}
+        <div className="comment-create-container">
+          <form className="comment-create-form">
+            <textarea
+              className="comment-create-textarea"
+              value={this.state.commentBody}
+              onChange={this.update("commentBody")}
+              placeholder="Add a comment...">
+            </textarea>
+            <button
+              className="submit-comment-button"
+              onClick={this.handleComment}>
+              Post
+            </button>
+          </form>
+        </div>
         </div>
     ); }
   }

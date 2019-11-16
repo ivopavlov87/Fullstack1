@@ -33,7 +33,8 @@ class FeedItem extends React.Component {
           className="delete-post-btn"
           onClick={this.handleDelete}
           type="button"
-          value={"otherFormBtn"}>
+          // value={"otherFormBtn"}
+          >
           X
         </button>
       </div>
