@@ -116,12 +116,21 @@ class PostShow extends React.Component {
     // debugger;
     let theComments = this.props.post && this.props.post.comments ? 
       Object.values(this.props.post.comments).map(comment => {
-        return <div>{comment.author}:&nbsp;{comment.body}</div>
+        return <div>
+          {comment.author}:&nbsp;{comment.body}
+          {comment.user_id === this.props.currentUser.id ? (
+            <button
+              className="delete-comment-button"
+              onClick={() => this.props.deleteComment(comment.id)
+                .then(() => { this.props.fetchPost(this.props.post.id) })}
+              >
+              X
+              </button>
+          ) : (
+              <div></div>
+            )}
+        </div>
       })
-      // <div>
-      //   <li>"Another Test"</li>
-      //   <li>"Yet again"</li>
-      // </div>
      : <div></div>
 
     let postPicture;
@@ -165,8 +174,6 @@ class PostShow extends React.Component {
           {postCaption}
           <br />
             {theComments}
-          {/* <ul>
-          </ul> */}
         <div className="comment-create-container">
           <form className="comment-create-form">
             <textarea
