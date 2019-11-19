@@ -420,3 +420,13 @@ a.comment-link {
   display: flex;
   align-items: center;
 }
+
+.comment-create-form{
+  display: flex;
+  border-top: 1px solid #eaeaea;
+}
+
+textarea.comment-create-textarea{
+  border: 0;
+  width: 575.84%;
+}
