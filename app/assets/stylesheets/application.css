@@ -252,6 +252,10 @@ button:focus{
   margin: 0 auto;
 }
 
+.test-image:hover{
+  cursor: pointer;
+}
+
 .feed-post-head{
   display: flex;
   flex-direction: row;
