@@ -82,7 +82,6 @@ class PostShow extends React.Component {
     // let postComments = Object.values(this.props.post.comments).map(comment => {
     //   return (
     //     <div
-    //       // key={comment.id - comment.user_id / 3}
     //       className="post-show-comment">
     //       <Link
     //         className="profile-link"
@@ -117,18 +116,16 @@ class PostShow extends React.Component {
     let theComments = this.props.post && this.props.post.comments ? 
       Object.values(this.props.post.comments).map(comment => {
         return <div>
-          {comment.author}:&nbsp;{comment.body}
+          <Link to={`/users/${comment.user_id}`}>
+          {comment.author}
+          </Link>:&nbsp;{comment.body}
           {comment.user_id === this.props.currentUser.id ? (
             <button
               className="delete-comment-button"
               onClick={() => this.props.deleteComment(comment.id)
-                .then(() => { this.props.fetchPost(this.props.post.id) })}
-              >
+                .then(() => { this.props.fetchPost(this.props.post.id) })}>
               X
-              </button>
-          ) : (
-              <div></div>
-            )}
+              </button>) : (<div></div>)}
         </div>
       })
      : <div></div>
@@ -171,7 +168,7 @@ class PostShow extends React.Component {
         <div className="feed-post-pic-container">
           <img className="test-image" src={postPicture} />
         </div>
-          {postCaption}
+        {this.state.postAuthor.username}:&nbsp;{postCaption}
           <br />
             {theComments}
         <div className="comment-create-container">
