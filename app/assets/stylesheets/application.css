@@ -430,3 +430,7 @@ textarea.comment-create-textarea{
   border: 0;
   width: 575.84%;
 }
+
+button.delete-post-btn{
+  height: 52px;
+}
