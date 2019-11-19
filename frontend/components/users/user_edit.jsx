@@ -74,9 +74,6 @@ class UserEdit extends React.Component {
 
   render() {
 
-    // console.log("props", this.props);
-    // console.log("state", this.state);
-
     let profilePic;
     if (this.state.user.photoURL) {
       profilePic = <img className="user-edit-picture" src={this.state.photoURL} />

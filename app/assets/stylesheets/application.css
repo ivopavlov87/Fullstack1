@@ -386,5 +386,9 @@ ul {
 .post-top{
   display: flex;
   justify-content: space-between;
+}
 
+.comment-author-pic{
+  width: 32px;
+  border-radius: 32px;
 }

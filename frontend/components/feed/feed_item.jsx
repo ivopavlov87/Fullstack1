@@ -8,12 +8,32 @@ class FeedItem extends React.Component {
 
     this.state = {
       postAuthor: "",
+      comments: "",
+      commentBody: ""
     }
 
+    // this deletes a post
     this.handleDelete = this.handleDelete.bind(this);
 
+    // for adding comments
+    this.handleComment = this.handleComment.bind(this)
   }
 
+  update(field) {
+    return (e) => {
+      this.setState({ [field]: e.target.value });
+    }
+  }
+
+  handleComment(e) {
+    e.preventDefault();
+    const comment = { body: this.state.commentBody, post_id: this.props.postId, user_id: this.props.currentUser.id };
+    this.props.createComment(comment)
+      .then(() => { this.props.fetchPost(this.props.post.id) })
+    this.setState({ commentBody: '' });
+  }
+
+  // this is for post deletion
   handleDelete() {
     this.props.deletePost(this.props.post.id);
   }
@@ -22,9 +42,35 @@ class FeedItem extends React.Component {
     this.props.postAuthor(this.props.post.user_id).then(res => {
       return (this.setState({ postAuthor: res.user }))
     })
+
+    this.props.fetchPostComments(this.props.postId).then(res => {
+      this.setState({ comments: Object.values(res.comments) })
+    })
+  }
+
+  matchCommentsToPost(comment) {
+    comment.post_id === this.props.postId
   }
 
   render() {
+
+    let theComments = this.props.post && this.props.post.comments ?
+      Object.values(this.props.post.comments).map(comment => {
+
+        return <div key={comment.id/comment.user_id + comment.post_id}>
+          <Link to={`/users/${comment.user_id}`}>
+            {comment.author}
+          </Link>:&nbsp;{comment.body}
+          {comment.user_id === this.props.currentUser.id ? (
+            <button
+              className="delete-comment-button"
+              onClick={() => this.props.deleteComment(comment.id)
+                .then(() => { this.props.fetchPost(this.props.post.id) })}>
+              X
+              </button>) : (<div></div>)}
+        </div>
+      })
+      : <div></div>
 
     let deleteOption = ""
     if (this.state.postAuthor.id === this.props.currentUser.id) {
@@ -33,7 +79,6 @@ class FeedItem extends React.Component {
           className="delete-post-btn"
           onClick={this.handleDelete}
           type="button"
-          // value={"otherFormBtn"}
           >
           X
         </button>
@@ -69,6 +114,23 @@ class FeedItem extends React.Component {
           />
         </div>
           {this.state.postAuthor.username}: {this.props.post.caption}
+        <br />
+        {theComments}
+        <div className="comment-create-container">
+          <form className="comment-create-form">
+            <textarea
+              className="comment-create-textarea"
+              value={this.state.commentBody}
+              onChange={this.update("commentBody")}
+              placeholder="Add a comment...">
+            </textarea>
+            <button
+              className="submit-comment-button"
+              onClick={this.handleComment}>
+              Post
+            </button>
+          </form>
+        </div>
       </div>
     );
   }

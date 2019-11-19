@@ -23,7 +23,12 @@ class Feed extends React.Component {
         <ul className="user-profile-posts">
           {this.props.posts.map(post => (
             <li className="post-index-list" key={post.id}>
-              <FeedItem post={post} postAuthor={this.props.fetchUser} deletePost={this.props.deletePost} currentUser={this.props.currentUser}/>
+              <FeedItem post={post} postAuthor={this.props.fetchUser} deletePost={this.props.deletePost} currentUser={this.props.currentUser}
+              fetchPostComments={this.props.fetchPostComments}
+              deleteComment={this.props.deleteComment}
+              createComment={this.props.createComment}
+              fetchPost={this.props.fetchPost}
+              />
             </li>
           ))}
         </ul>
