@@ -56,21 +56,24 @@ class FeedItem extends React.Component {
 
     let theComments = this.props.post && this.props.post.comments ?
       Object.values(this.props.post.comments).map(comment => {
+        return <div key={comment.id / comment.user_id + comment.post_id} className="comment-show-container">
+          <div className="comment-user-and-body-container">
+            <Link className="comment-link" to={`/users/${comment.user_id}`}>
+              <img className="comment-author-pic" src={comment.authorPic} />
+              <div className="comment-user-and-body">
+                {comment.author}:&nbsp;
+              </div>
+            </Link>{comment.body}
+          </div>
 
-        return <div key={comment.id/comment.user_id + comment.post_id}>
-          <Link to={`/users/${comment.user_id}`}>
-            {comment.author}
-          </Link>:&nbsp;{comment.body}
           {comment.user_id === this.props.currentUser.id ? (
-            <button
-              className="delete-comment-button"
+            <button className="delete-comment-button"
               onClick={() => this.props.deleteComment(comment.id)
                 .then(() => { this.props.fetchPost(this.props.post.id) })}>
               X
-              </button>) : (<div></div>)}
+            </button>) : (<div></div>)}
         </div>
-      })
-      : <div></div>
+      }) : <div></div>
 
     let deleteOption = ""
     if (this.state.postAuthor.id === this.props.currentUser.id) {

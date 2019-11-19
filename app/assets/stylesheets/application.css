@@ -393,3 +393,25 @@ ul {
   height: 32px;
   border-radius: 32px;
 }
+
+a {
+  color: black;
+}
+
+a.comment-link {
+  color: black;
+  display: flex;
+  align-items: center;
+}
+
+.comment-show-container{
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.comment-user-and-body-container{
+  display: flex;
+  align-items: center;
+}
