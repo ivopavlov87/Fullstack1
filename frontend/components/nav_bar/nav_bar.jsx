@@ -44,7 +44,7 @@ class NavBar extends React.Component {
             <p className="pictogram-name-text-nav-bar">Picto-gram</p>
           </Link>
           <div className="nav-bar-search">
-            <input type="text" placeholder="Search" />
+            {/* <input type="text" placeholder="Search" /> */}
           </div>
           <div className="nav-bar-buttons">
             <div>
