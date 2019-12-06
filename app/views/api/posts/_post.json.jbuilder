@@ -1,12 +1,10 @@
 json.extract! post, :id, :user_id, :caption, :created_at
 json.author post.user.username
-# json.authorPhotoUrl url_for(post.user.photo)
 json.photoURL url_for(post.photo)
-# json.likers post.likers.pluck(:user_id)
 
 json.commentIds post.comment_ids
 json.comments post.comments do |comment|
-    json.authorPic url_for(comment.user.profile_picture)
+    json.authorPic url_for(comment.user.profile_picture) if json.authorPic
     json.author comment.user.username
     json.user_id comment.user_id
     json.body comment.body
