@@ -4,7 +4,7 @@ json.photoURL url_for(post.photo)
 
 json.commentIds post.comment_ids
 json.comments post.comments do |comment|
-    json.authorPic url_for(comment.user.profile_picture)
+    json.authorPic url_for(comment.user.profile_picture) if comment.user.authorPic.attached?
     json.author comment.user.username
     json.user_id comment.user_id
     json.body comment.body
