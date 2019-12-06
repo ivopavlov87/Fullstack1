@@ -428,7 +428,8 @@ a.comment-link {
 
 textarea.comment-create-textarea{
   border: 0;
-  width: 575.84%;
+  width: 575.84px;
+  border-bottom: 1px solid #eaeaea;
 }
 
 button.delete-post-btn{
